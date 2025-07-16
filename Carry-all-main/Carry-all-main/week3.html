@@ -19,44 +19,67 @@
     .quiz li { margin-bottom: 15px; }
     .quiz button { margin-top: 10px; padding: 8px 12px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
     .quiz-msg { display: block; margin-top: 10px; font-weight: bold; }
+
+    /* Popup box styles */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .popup-overlay.active {
+      display: flex;
+    }
+    .popup-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    .popup-box a {
+      display: inline-block;
+      margin-top: 10px;
+      background: #007bff;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .popup-box button:not(.close-popup) {
+      display: inline-block;
+      margin-top: 10px;
+      background: #007bff;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .popup-box button:not(.close-popup):hover {
+      background: #0056b3;
+    }
+    .popup-box button.close-popup {
+      background: none;
+      border: none;
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
   </style>
   
-<script>
-    function submitQuiz() {
-      const name = document.getElementById('studentName').value.trim();
-      if (!name) {
-        alert('Please enter your name.');
-        return;
-      }
-      const answers = {
-        q1: '3',
-        q2: '2',
-        q3: '3',
-        q4: '3',
-        q5: '2',
-        q6: '2',
-        q7: '2',
-        q8: '3',
-        q9: '2',
-        q10: '2'
-      };
-      let correct = 0;
-      const total = Object.keys(answers).length;
-      for (let q in answers) {
-        const sel = document.querySelector('input[name="' + q + '"]:checked');
-        if (sel && sel.value === answers[q]) correct++;
-      }
-      document.getElementById('quizResult').textContent = `Thanks ${name}, you scored ${correct}/${total}.`;
-      // Send results to Google Sheet
-      fetch('https://script.google.com/macros/s/AKfycbwgGErectw_UVCyTxfRyA14mTSBssJ2r88_UiQU0CrxQs1vQ8plSuAueFNCTLS8nmBJ/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, week: 'Week 3', score: correct })
-      });
-      alert('Your mark has been submitted to your teacher');
-    }
-</script>
 
 </head>
 <body>
@@ -123,8 +146,6 @@
       </ul>
     </section>
     <section class="content-section quiz">
-      <p><strong>Enter your name to begin:</strong></p>
-      <input type="text" id="studentName" placeholder="Your full name" required>
       <h2>Have You Been Paying Attention? – Week 3 Quiz</h2>
       <form id="week3-quiz">
         <ol>
@@ -199,10 +220,45 @@
             <label><input type="radio" name="q10" value="4"> It’s stronger than most hardwoods</label>
           </li>
         </ol>
-        <button type="button" onclick="submitQuiz()">Check Answers</button>
+        <button type="button" onclick="submitQuiz(this, 'Week 3')">Check Answers</button>
         <span id="quizResult" class="quiz-msg"></span>
       </form>
     </section>
   </main>
+
+  <!-- Popup for results -->
+  <div id="resultPopup" class="popup-overlay" role="dialog" aria-modal="true">
+    <div class="popup-box">
+      <button class="close-popup" aria-label="Close">&times;</button>
+      <h3>Results Submitted</h3>
+      <p>You can now visit Google Classroom to record your work.</p>
+      <a id="popupClassroomLink" href="#" target="_blank">Open Google Classroom</a>
+    </div>
+  </div>
+
+  <!-- Popup confirming submission before Google Classroom link -->
+  <div id="submittedPopup" class="popup-overlay" role="dialog" aria-modal="true">
+    <div class="popup-box">
+      <p>Your results have been submitted.</p>
+      <button id="submittedOkBtn">OK</button>
+    </div>
+  </div>
+
+  <!-- Popup for entering name -->
+  <div id="namePopup" class="popup-overlay" role="dialog" aria-modal="true">
+    <div class="popup-box">
+      <label for="studentName"><b>Please enter your name:</b></label><br/>
+      <input type="text" id="studentName" style="margin-top:10px; padding:8px; width:95%;" />
+      <button id="submitNameBtn" style="margin-top:10px;">Submit</button>
+    </div>
+  </div>
+
+  <script src="quiz.js"></script>
+  <script>
+    window.answers = {
+      q1: '3', q2: '2', q3: '3', q4: '2', q5: '1',
+      q6: '2', q7: '3', q8: '2', q9: '4', q10: '2'
+    };
+  </script>
 </body>
 </html>
