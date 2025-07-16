@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Week 9 – Surface Preparation – Sanding, Filling & Finishing Your Carry-all" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 9 – Sanding, Finishing & Surface Prep</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
+    header { background: #007bff; color: #fff; padding: 20px; text-align: center; }
+    nav { display: flex; justify-content: center; background: #0056b3; flex-wrap: wrap; }
+    nav a { padding: 15px 20px; color: #fff; text-decoration: none; }
+    nav a.active, nav a:hover { background: #003f80; }
+    main.content { padding: 20px; }
+    .content-section { background: #fff; margin: 10px auto; padding: 20px; width: 90%; max-width: 800px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 5px; }
+    h2, h3 { color: #007bff; }
+    ul { margin: 10px 0 15px 20px; }
+    .quiz { background: #f9f9f9; padding: 15px; border: 1px solid #ddd; margin-top: 20px; border-radius: 5px; }
+    .quiz ol { padding-left: 20px; }
+    .quiz li { margin-bottom: 15px; }
+    .quiz button { margin-top: 10px; padding: 8px 12px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .quiz-msg { display: block; margin-top: 10px; font-weight: bold; }
+  </style>
+  
+<script>
+    function submitQuiz() {
+      const name = document.getElementById('studentName').value.trim();
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+      const answers = {
+        q1: '2', q2: '3', q3: '2', q4: '3', q5: '2',
+        q6: '3', q7: '2', q8: '3', q9: '3'
+      };
+      let correct = 0;
+      const total = Object.keys(answers).length;
+      for (let q in answers) {
+        const sel = document.querySelector('input[name="' + q + '"]:checked');
+        if (sel && sel.value === answers[q]) correct++;
+      }
+      document.getElementById('quizResult').textContent = 
+        `Thanks ${name}, you scored ${correct}/${total}.`;
+      fetch('https://script.google.com/macros/s/AKfycbwgGErectw_UVCyTxfRyA14mTSBssJ2r88_UiQU0CrxQs1vQ8plSuAueFNCTLS8nmBJ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, week: 'Week 9', score: correct })
+      });
+      alert('Your mark has been submitted to your teacher');
+    }
+</script>
+
+</head>
+<body>
+  <header>
+    <h1>Carry-all Project – Week 9</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="week8.html">← Previous</a>
+    <a href="week9.html" class="active">Week 9</a>
+    <a href="week10.html">Next →</a>
+  </nav>
+  <main class="content">
+    <section class="content-section">
+      <h2>Week 9: Surface Preparation – Sanding, Filling &amp; Finishing Your Carry-all</h2>
+      <h3>Introduction</h3>
+      <p>With your Carry-all assembled and square, it's time to move into surface preparation — the stage that separates an average job from a professional-looking result. Whether you plan to paint, stain, or oil your project, the finish is only as good as the surface underneath.</p>
+      <p>This week is about the three-step formula for a great finish:</p>
+      <ul>
+        <li>Sand smooth</li>
+        <li>Fill gaps or defects</li>
+        <li>Apply an appropriate finish</li>
+      </ul>
+      <h3>Sanding</h3>
+      <p>Start with medium grit (e.g., 120) to level surfaces, then move to fine grit (e.g., 180 or 240) for a smooth finish.</p>
+      <ul>
+        <li>Always sand with the grain, not across it</li>
+        <li>Use a block to avoid rounding edges</li>
+        <li>Don't oversand — it can ruin sharp edges or expose glue lines</li>
+      </ul>
+      <h3>Filling Gaps &amp; Small Defects</h3>
+      <p>Use wood filler that matches your timber:</p>
+      <ul>
+        <li>Apply with a scraper or finger</li>
+        <li>Let it dry fully before sanding smooth</li>
+      </ul>
+      <h3>Choosing a Finish</h3>
+      <p>Common options:</p>
+      <ul>
+        <li>Clear polyurethane — hard-wearing, water-resistant</li>
+        <li>Stain + clear coat — adds colour and seals</li>
+        <li>Oil finish (e.g., Danish or linseed) — enhances grain</li>
+        <li>Paint — adds colour, hides flaws</li>
+      </ul>
+      <p><strong>Test on scrap first</strong> — finishes can change the appearance more than expected.</p>
+    </section>
+    <section class="content-section quiz">
+      <p><strong>Enter your name to begin:</strong></p>
+      <input type="text" id="studentName" placeholder="Your full name" required>
+      <h2>Have You Been Paying Attention? – Week 9 Quiz</h2>
+      <form id="week9-quiz">
+        <ol>
+          <li><p>What is the main purpose of sanding timber before finishing?</p>
+            <label><input type="radio" name="q1" value="1"> To make it heavier</label><br>
+            <label><input type="radio" name="q1" value="2"> To smooth the surface and remove marks or glue</label><br>
+            <label><input type="radio" name="q1" value="3"> To colour it naturally</label><br>
+            <label><input type="radio" name="q1" value="4"> To bend it more easily</label>
+          </li>
+          <li><p>Why should you always sand with the grain?</p>
+            <label><input type="radio" name="q2" value="1"> It's faster</label><br>
+            <label><input type="radio" name="q2" value="2"> It makes more dust</label><br>
+            <label><input type="radio" name="q2" value="3"> To avoid scratches that stand out under finish</label><br>
+            <label><input type="radio" name="q2" value="4"> To sharpen the tools</label>
+          </li>
+          <li><p>What grit would you use first when sanding a rough timber surface?</p>
+            <label><input type="radio" name="q3" value="1"> 400 grit</label><br>
+            <label><input type="radio" name="q3" value="2"> 120 grit</label><br>
+            <label><input type="radio" name="q3" value="3"> 600 grit</label><br>
+            <label><input type="radio" name="q3" value="4"> Steel wool</label>
+          </li>
+          <li><p>What tool helps keep your sanding surface flat and even?</p>
+            <label><input type="radio" name="q4" value="1"> Paintbrush</label><br>
+            <label><input type="radio" name="q4" value="2"> Cloth</label><br>
+            <label><input type="radio" name="q4" value="3"> Sanding block</label><br>
+            <label><input type="radio" name="q4" value="4"> Mallet</label>
+          </li>
+          <li><p>What is wood filler used for?</p>
+            <label><input type="radio" name="q5" value="1"> Strengthening joints</label><br>
+            <label><input type="radio" name="q5" value="2"> Filling small gaps, dents or chips in the timber</label><br>
+            <label><input type="radio" name="q5" value="3"> Gluing parts together</label><br>
+            <label><input type="radio" name="q5" value="4"> Removing stain</label>
+          </li>
+          <li><p>What should you always do before applying your final finish?</p>
+            <label><input type="radio" name="q6" value="1"> Soak the timber in water</label><br>
+            <label><input type="radio" name="q6" value="2"> Sand with coarse paper</label><br>
+            <label><input type="radio" name="q6" value="3"> Test the finish on a scrap piece</label><br>
+            <label><input type="radio" name="q6" value="4"> Paint over any dust</label>
+          </li>
+          <li><p>What happens if you oversand the edges of your timber?</p>
+            <label><input type="radio" name="q7" value="1"> They get stronger</label><br>
+            <label><input type="radio" name="q7" value="2"> You round them over and lose clean lines</label><br>
+            <label><input type="radio" name="q7" value="3"> The glue becomes stronger</label><br>
+            <label><input type="radio" name="q7" value="4"> It prepares them better for paint</label>
+          </li>
+          <li><p>Which finish type brings out the grain and soaks into the timber?</p>
+            <label><input type="radio" name="q8" value="1"> Spray paint</label><br>
+            <label><input type="radio" name="q8" value="2"> Polyurethane</label><br>
+            <label><input type="radio" name="q8" value="3"> Oil finish (like Danish or linseed oil)</label><br>
+            <label><input type="radio" name="q8" value="4"> Shellac</label>
+          </li>
+          <li><p>Which finish would best protect your Carry-all from moisture and knocks?</p>
+            <label><input type="radio" name="q9" value="1"> Raw timber with no finish</label><br>
+            <label><input type="radio" name="q9" value="2"> Watercolour paint</label><br>
+            <label><input type="radio" name="q9" value="3"> Clear polyurethane</label><br>
+            <label><input type="radio" name="q9" value="4"> Chalk pastel</label>
+          </li>
+        </ol>
+        <button type="button" onclick="submitQuiz()">Check Answers</button>
+        <span id="quizResult" class="quiz-msg"></span>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

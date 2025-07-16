@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Week 8 – Assembly, Squareness & Dry Fitting Techniques" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 8 – Assembly, Squareness & Dry Fitting Techniques</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
+    header { background: #007bff; color: #fff; padding: 20px; text-align: center; }
+    nav { display: flex; justify-content: center; background: #0056b3; flex-wrap: wrap; }
+    nav a { padding: 15px 20px; color: #fff; text-decoration: none; }
+    nav a.active, nav a:hover { background: #003f80; }
+    main.content { padding: 20px; }
+    .content-section { background: #fff; margin: 10px auto; padding: 20px; width: 90%; max-width: 800px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 5px; }
+    h2, h3 { color: #007bff; }
+    ul { margin: 10px 0 15px 20px; }
+    .quiz { background: #f9f9f9; padding: 15px; border: 1px solid #ddd; margin-top: 20px; border-radius: 5px; }
+    .quiz ol { padding-left: 20px; }
+    .quiz li { margin-bottom: 15px; }
+    .quiz button { margin-top: 10px; padding: 8px 12px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .quiz-msg { display: block; margin-top: 10px; font-weight: bold; }
+  </style>
+  
+<script>
+    function submitQuiz() {
+      const name = document.getElementById('studentName').value.trim();
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+      const answers = {
+        q1: '2', q2: '3', q3: '3', q4: '2', q5: '2',
+        q6: '2', q7: '2', q8: '1', q9: '2', q10: '3'
+      };
+      let correct = 0;
+      const total = Object.keys(answers).length;
+      for (let q in answers) {
+        const sel = document.querySelector('input[name="' + q + '"]:checked');
+        if (sel && sel.value === answers[q]) correct++;
+      }
+      document.getElementById('quizResult').textContent = 
+        `Thanks ${name}, you scored ${correct}/${total}.`;
+      fetch('https://script.google.com/macros/s/AKfycbwgGErectw_UVCyTxfRyA14mTSBssJ2r88_UiQU0CrxQs1vQ8plSuAueFNCTLS8nmBJ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, week: 'Week 8', score: correct })
+      });
+      alert('Your mark has been submitted to your teacher');
+    }
+</script>
+
+</head>
+<body>
+  <header>
+    <h1>Carry-all Project – Week 8</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="week7.html">← Previous</a>
+    <a href="week8.html" class="active">Week 8</a>
+    <a href="week9.html">Next →</a>
+  </nav>
+  <main class="content">
+    <section class="content-section">
+      <h2>Week 8: Assembly, Squareness &amp; Dry Fitting Techniques</h2>
+      <h3>Introduction</h3>
+      <p>This is a critical week in your Carry-all project — it’s time to begin assembling the main body. That means dry fitting parts, checking alignment, and clamping things in place before committing to glue. Get this step wrong, and even perfect joints won’t save your project.</p>
+      <h3>Dry Fitting – Why Test Before You Glue?</h3>
+      <p>Dry fitting means assembling parts without glue to:</p>
+      <ul>
+        <li>Check for fit and alignment</li>
+        <li>Confirm all pieces are present and oriented correctly</li>
+        <li>Test how clamps will be positioned</li>
+        <li>Identify where adjustments are needed before glue goes everywhere</li>
+      </ul>
+      <p><em>Pro Tip:</em> Mark lightly with pencil where clamps go and which face is outward to avoid assembly mistakes.</p>
+      <h3>Checking for Squareness</h3>
+      <p>Once parts are dry fitted or clamped, you need to check that everything is square:</p>
+      <ul>
+        <li>Use a try square or measure diagonals corner-to-corner</li>
+        <li>If diagonals are equal, the box is square</li>
+        <li>Even small misalignments can cause problems later</li>
+      </ul>
+      <h3>Gluing &amp; Clamping in Stages</h3>
+      <p>Don’t glue everything at once. Instead:</p>
+      <ul>
+        <li>Glue one or two sides at a time</li>
+        <li>Clamp firmly and wipe away excess glue</li>
+        <li>Allow each stage to dry fully before moving on</li>
+      </ul>
+      <h3>Clamping Tips</h3>
+      <ul>
+        <li>Use scrap timber pads between clamps and project to avoid dents</li>
+        <li>Don’t overtighten — firm pressure is enough</li>
+        <li>Place clamps opposite each other and spaced evenly to prevent twisting</li>
+      </ul>
+      <h3>Discussion Starters</h3>
+      <ul>
+        <li>Why is dry fitting essential before final assembly?</li>
+        <li>Have you ever glued something up too fast and regretted it?</li>
+        <li>What’s your method for checking if a box is square?</li>
+      </ul>
+    </section>
+    <section class="content-section quiz">
+      <p><strong>Enter your name to begin:</strong></p>
+      <input type="text" id="studentName" placeholder="Your full name" required>
+      <h2>Have You Been Paying Attention? – Week 8 Quiz</h2>
+      <form id="week8-quiz">
+        <ol>
+          <li>
+            <p>What does “dry fitting” mean in woodworking?</p>
+            <label><input type="radio" name="q1" value="1"> Letting the glue dry before sanding</label><br>
+            <label><input type="radio" name="q1" value="2"> Assembling parts without glue to test the fit</label><br>
+            <label><input type="radio" name="q1" value="3"> Cutting timber while it's dry</label><br>
+            <label><input type="radio" name="q1" value="4"> Leaving joints loose for flexibility</label>
+          </li>
+          <li>
+            <p>Why should you always dry fit before gluing?</p>
+            <label><input type="radio" name="q2" value="1"> To skip clamping</label><br>
+            <label><input type="radio" name="q2" value="2"> To see what it looks like</label><br>
+            <label><input type="radio" name="q2" value="3"> To ensure everything fits, aligns, and clamps correctly</label><br>
+            <label><input type="radio" name="q2" value="4"> To make sanding easier</label>
+          </li>
+          <li>
+            <p>What is the purpose of checking diagonal measurements on a box?</p>
+            <label><input type="radio" name="q3" value="1"> To measure height</label><br>
+            <label><input type="radio" name="q3" value="2"> To test its volume</label><br>
+            <label><input type="radio" name="q3" value="3"> To confirm the box is square</label><br>
+            <label><input type="radio" name="q3" value="4"> To prepare for finishing</label>
+          </li>
+          <li>
+            <p>If one diagonal is longer than the other, what does that mean?</p>
+            <label><input type="radio" name="q4" value="1"> The wood is too soft</label><br>
+            <label><input type="radio" name="q4" value="2"> The box is not square</label><br>
+            <label><input type="radio" name="q4" value="3"> The glue has failed</label><br>
+            <label><input type="radio" name="q4" value="4"> The grain is reversed</label>
+          </li>
+          <li>
+            <p>What is the best approach to gluing a complex project?</p>
+            <label><input type="radio" name="q5" value="1"> Glue everything at once to save time</label><br>
+            <label><input type="radio" name="q5" value="2"> Glue sides one at a time, letting each part dry</label><br>
+            <label><input type="radio" name="q5" value="3"> Use nails instead of glue</label><br>
+            <label><input type="radio" name="q5" value="4"> Avoid glue and only clamp</label>
+          </li>
+          <li>
+            <p>Why should you place pads between clamps and timber?</p>
+            <label><input type="radio" name="q6" value="1"> To sharpen tools</label><br>
+            <label><input type="radio" name="q6" value="2"> To protect the surface from dents or damage</label><br>
+            <label><input type="radio" name="q6" value="3"> To stop glue from drying</label><br>
+            <label><input type="radio" name="q6" value="4"> To align nails</label>
+          </li>
+          <li>
+            <p>What happens if you overtighten clamps on soft timber?</p>
+            <label><input type="radio" name="q7" value="1"> Glue works faster</label><br>
+            <label><input type="radio" name="q7" value="2"> It can crush or dent the timber</label><br>
+            <label><input type="radio" name="q7" value="3"> It sands more easily</label><br>
+            <label><input type="radio" name="q7" value="4"> It smells burning</label>
+          </li>
+          <li>
+            <p>What tool can you use to check if two edges are at a perfect right angle?</p>
+            <label><input type="radio" name="q8" value="1"> Spirit level</label><br>
+            <label><input type="radio" name="q8" value="2"> Try square</label><br>
+            <label><input type="radio" name="q8" value="3"> Mallet</label><br>
+            <label><input type="radio" name="q8" value="4"> Tape measure</label>
+          </li>
+          <li>
+            <p>How should clamps be positioned for even pressure?</p>
+            <label><input type="radio" name="q9" value="1"> All on one side</label><br>
+            <label><input type="radio" name="q9" value="2"> Opposite each other and spaced evenly</label><br>
+            <label><input type="radio" name="q9" value="3"> Randomly wherever they fit</label><br>
+            <label><input type="radio" name="q9" value="4"> On outside corners only</label>
+          </li>
+          <li>
+            <p>What should you do if your project is out of square before gluing?</p>
+            <label><input type="radio" name="q10" value="1"> Leave it and hope glue fixes it</label><br>
+            <label><input type="radio" name="q10" value="2"> Add extra clamps</label><br>
+            <label><input type="radio" name="q10" value="3"> Adjust parts or trim until square</label><br>
+            <label><input type="radio" name="q10" value="4"> Glue quickly</label>
+          </li>
+        </ol>
+        <button type="button" onclick="submitQuiz()">Check Answers</button>
+        <span id="quizResult" class="quiz-msg"></span>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

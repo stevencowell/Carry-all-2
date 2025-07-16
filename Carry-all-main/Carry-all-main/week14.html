@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Week 14 – Peer Feedback & Final Refinements" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 14 – Peer Feedback & Final Refinements</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
+    header { background: #007bff; color: #fff; padding: 20px; text-align: center; }
+    nav { display: flex; justify-content: center; background: #0056b3; flex-wrap: wrap; }
+    nav a { padding: 15px 20px; color: #fff; text-decoration: none; }
+    nav a.active, nav a:hover { background: #003f80; }
+    main.content { padding: 20px; }
+    .content-section { background: #fff; margin: 10px auto; padding: 20px; width: 90%; max-width: 800px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 5px; }
+    h2, h3 { color: #007bff; }
+    ul { margin: 10px 0 15px 20px; }
+    .quiz { background: #f9f9f9; padding: 15px; border: 1px solid #ddd; margin-top: 20px; border-radius: 5px; }
+    .quiz ol { padding-left: 20px; }
+    .quiz li { margin-bottom: 15px; }
+    .quiz button { margin-top: 10px; padding: 8px 12px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .quiz-msg { display: block; margin-top: 10px; font-weight: bold; }
+  </style>
+  
+<script>
+    function submitQuiz() {
+      const name = document.getElementById('studentName').value.trim();
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+      const answers = { q1: '4', q2: '2', q3: '2', q4: '2', q5: '4' };
+      let correct = 0;
+      const total = Object.keys(answers).length;
+      for (let q in answers) {
+        const sel = document.querySelector('input[name="' + q + '"]:checked');
+        if (sel && sel.value === answers[q]) correct++;
+      }
+      document.getElementById('quizResult').textContent =
+        `Thanks ${name}, you scored ${correct}/${total}.`;
+      fetch('https://script.google.com/macros/s/AKfycbwgGErectw_UVCyTxfRyA14mTSBssJ2r88_UiQU0CrxQs1vQ8plSuAueFNCTLS8nmBJ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, week: 'Week 14', score: correct })
+      });
+      alert('Your mark has been submitted to your teacher');
+    }
+</script>
+
+</head>
+<body>
+  <header>
+    <h1>Carry-all Project – Week 14</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="week13.html">← Previous</a>
+    <a href="week14.html" class="active">Week 14</a>
+    <a href="week15.html">Next →</a>
+  </nav>
+  <main class="content">
+    <section class="content-section">
+      <h2>Week 14: Peer Feedback &amp; Final Refinements</h2>
+      <h3>Giving and Receiving Peer Feedback</h3>
+      <ul>
+        <li><strong>Positives first</strong> – highlight what works well</li>
+        <li><strong>Specific suggestions</strong> – be clear and constructive</li>
+        <li><strong>Focus on function and finish</strong> – keep feedback task-oriented</li>
+      </ul>
+      <p>When receiving feedback, listen openly, ask clarifying questions, and decide which suggestions to implement.</p>
+      <h3>Refining Your Project</h3>
+      <ul>
+        <li>Sand any rough patches or missed corners</li>
+        <li>Re-align or tighten hardware</li>
+        <li>Touch up finish drips or blemishes</li>
+        <li>Add final details, like labels or padding</li>
+      </ul>
+      <h3>Professional Presentation</h3>
+      <ul>
+        <li>Ensure all parts are clean and secure</li>
+        <li>Remove pencil marks and glue spots</li>
+        <li>Consider adding a name tag or brief reflection</li>
+      </ul>
+    </section>
+    <section class="content-section quiz">
+      <p><strong>Enter your name to begin:</strong></p>
+      <input type="text" id="studentName" placeholder="Your full name" required>
+      <h2>Have You Been Paying Attention? – Week 14 Quiz</h2>
+      <form id="week14-quiz">
+        <ol>
+          <li>
+            <p>Why start feedback with positives?</p>
+            <label><input type="radio" name="q1" value="1"> To finish quickly</label><br>
+            <label><input type="radio" name="q1" value="2"> To avoid giving suggestions</label><br>
+            <label><input type="radio" name="q1" value="3"> To criticize less</label><br>
+            <label><input type="radio" name="q1" value="4"> To encourage and build trust</label>
+          </li>
+          <li>
+            <p>What should feedback focus on?</p>
+            <label><input type="radio" name="q2" value="1"> Personal style choices</label><br>
+            <label><input type="radio" name="q2" value="2"> Function and finish</label><br>
+            <label><input type="radio" name="q2" value="3"> Random opinions</label><br>
+            <label><input type="radio" name="q2" value="4"> Cost of materials</label>
+          </li>
+          <li>
+            <p>Which is a final refinement?</p>
+            <label><input type="radio" name="q3" value="1"> Leaving pencil marks</label><br>
+            <label><input type="radio" name="q3" value="2"> Touching up finish drips</label><br>
+            <label><input type="radio" name="q3" value="3"> Adding unnecessary decorations</label><br>
+            <label><input type="radio" name="q3" value="4"> Sanding through the finish</label>
+          </li>
+          <li>
+            <p>What cleans glue spots?</p>
+            <label><input type="radio" name="q4" value="1"> Sanding heavily</label><br>
+            <label><input type="radio" name="q4" value="2"> Wiping with a damp cloth</label><br>
+            <label><input type="radio" name="q4" value="3"> Applying more glue</label><br>
+            <label><input type="radio" name="q4" value="4"> Using tape</label>
+          </li>
+          <li>
+            <p>Why add a name tag?</p>
+            <label><input type="radio" name="q5" value="1"> To hide flaws</label><br>
+            <label><input type="radio" name="q5" value="2"> To show ownership</label><br>
+            <label><input type="radio" name="q5" value="3"> To measure size</label><br>
+            <label><input type="radio" name="q5" value="4"> To skip sanding</label>
+          </li>
+        </ol>
+        <button type="button" onclick="submitQuiz()">Check Answers</button>
+        <span id="quizResult" class="quiz-msg"></span>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

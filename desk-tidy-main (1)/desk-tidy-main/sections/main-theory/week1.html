@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Desk Tidy — Week 1 Quiz & Safety</title>
+  <style>
+    body {font-family: Arial, sans-serif; line-height: 1.5; margin: 1rem 2rem;}
+    fieldset {border: 1px solid #777; padding: 1rem;}
+    legend   {padding: 0 .5rem;}
+    .quiz-msg {margin-left: 1rem; font-weight: bold;}
+    button.check-btn {margin-top: 1rem; padding: .4rem .8rem; cursor: pointer;}
+  </style>
+</head>
+
+<body>
+
+<details open>
+  <summary><b>Week 1: Introduction and Workshop Safety</b></summary>
+  <article>
+    <h4>Introduction</h4>
+    <p>Welcome to the Desk Tidy project! In this first week, we introduce the project and focus on workshop safety.
+       A desk tidy is a small wooden organiser that keeps your desk items neat. We’re going to design and build one over
+       the next 10 weeks. Before any cutting or building, safety is our top priority – a workshop has tools and
+       equipment that can be dangerous if not used properly.</p>
+
+    <h4>Workshop Safety Basics</h4>
+    <ul>
+      <li>Listen to instructions: pay close attention to your teacher and follow their guidance at all times.</li>
+      <li>Wear PPE (Personal Protective Equipment): always wear safety glasses or goggles when cutting, sanding,
+          or using any tools. Put on a workshop apron to protect your clothes and keep loose clothing in check.  
+          Sturdy shoes must be worn.</li>
+      <li>Tie back long hair and remove jewellery so nothing gets caught in tools.</li>
+      <li>No running or goofing around in the workshop.</li>
+      <li>Use tools correctly: only after you have been taught how to use them safely.</li>
+      <li>Keep a tidy workspace and clean up any spills.</li>
+      <li>Be patient and never rush; ask the teacher if you feel unsure.</li>
+      <li>Report problems immediately if a tool breaks or someone is injured.</li>
+    </ul>
+    <p>By following these rules, we can prevent accidents and ensure the workshop is a safe, fun place to create your
+       desk tidy. Safety may seem like common sense, but even experienced woodworkers follow strict safety rules every
+       day. Let’s build good habits from the start!</p>
+
+    <!-- ========= QUIZ =========== -->
+    <form class="quiz" data-week="1" id="main-week1-quiz">
+      <fieldset>
+        <legend><b>Week 1 Quiz</b></legend>
+        <ol>
+          <!-- 1 -->
+          <li>
+            <p><b>Scenario:</b> Alex walks into the workshop carrying a backpack filled with tools. He puts it down near
+               the workbench and immediately grabs a saw without checking his surroundings.<br>
+               Which of Alex’s actions is most likely to cause an accident?</p>
+            <label><input data-correct="false" name="main_q1_1" type="radio" value="Putting backpack"> A. Putting the
+                   backpack on the workbench without clearing away scrap wood first</label><br>
+            <label><input data-correct="true"  name="main_q1_1" type="radio" value="Grabbing saw"> B. Grabbing the saw
+                   before checking that others have space to move around</label><br>
+            <label><input data-correct="false" name="main_q1_1" type="radio" value="Safety glasses"> C. Wearing safety
+                   glasses but not an apron</label><br>
+            <label><input data-correct="false" name="main_q1_1" type="radio" value="Asking friend"> D. Asking a friend
+                   to help carry the backpack later</label>
+          </li>
+
+          <!-- 2 -->
+          <li>
+            <p><b>Scenario:</b> Before starting a cutting task, Mia notices a loose cord crossing the workshop floor and
+               leaves it there because she plans to fix it later. She proceeds to measure her wood pieces.<br>
+               Why is leaving the loose cord a safety hazard, and what should Mia do first?</p>
+            <label><input data-correct="false" name="main_q1_2" type="radio" value="Cover with tape"> A. It could
+                   fray—she should cover it with tape and continue measuring.</label><br>
+            <label><input data-correct="true"  name="main_q1_2" type="radio" value="Tape or move"> B. Someone could
+                   trip—she should either tape it down or move it out of the walkway before measuring.</label><br>
+            <label><input data-correct="false" name="main_q1_2" type="radio" value="Not dangerous"> C. It’s not
+                   dangerous—measuring is more important, so she can fix it at break time.</label><br>
+            <label><input data-correct="false" name="main_q1_2" type="radio" value="Ignore"> D. It’s only an issue if
+                   water spills—ignore it for now and measure.</label>
+          </li>
+
+          <!-- 3 -->
+          <li>
+            <p><b>Scenario:</b> Jordan has long hair tied back but left some strands loose. He starts the power drill
+               without re-securing them.<br>
+               What could happen if Jordan continues drilling, and what’s the best preventive step?</p>
+            <label><input data-correct="true"  name="main_q1_3" type="radio" value="Hair caught"> A. The loose strands
+                   could catch in the drill—re-tie the hair tightly before turning on the machine.</label><br>
+            <label><input data-correct="false" name="main_q1_3" type="radio" value="Harmless"> B. Loose strands are
+                   harmless—he should focus on gripping the drill correctly.</label><br>
+            <label><input data-correct="false" name="main_q1_3" type="radio" value="Improve air"> C. Loose strands
+                   improve air circulation—no need to change anything.</label><br>
+            <label><input data-correct="false" name="main_q1_3" type="radio" value="Cut hair"> D. The drill bit can cut
+                   the loose strands—he should wear gloves instead.</label>
+          </li>
+
+          <!-- 4 -->
+          <li>
+            <p><b>Scenario:</b> During a demonstration, a student’s goggles slip off because they chose safety glasses
+               that didn’t fit properly. They continue sanding without adjusting them.<br>
+               Why is this a problem, and what should the student do immediately?</p>
+            <label><input data-correct="true"  name="main_q1_4" type="radio" value="Adjust or replace"> A. They risk eye
+                   injury; they should stop and adjust or replace the goggles before resuming.</label><br>
+            <label><input data-correct="false" name="main_q1_4" type="radio" value="Hold goggles"> B. They can just hold
+                   the goggles in place with one hand; continue sanding.</label><br>
+            <label><input data-correct="false" name="main_q1_4" type="radio" value="Particles harmless"> C. Small wood
+                   particles won’t harm without goggles; keep sanding.</label><br>
+            <label><input data-correct="false" name="main_q1_4" type="radio" value="Teacher finish"> D. The teacher
+                   should finish the sanding instead; they can watch.</label>
+          </li>
+
+          <!-- 5 -->
+          <li>
+            <p><b>Scenario:</b> Sam spots a piece of scrap timber lying in the middle of the workshop floor but decides
+               to leave it until the end of class to avoid interrupting the activity flow.<br>
+               What makes this decision unsafe, and what is the correct action?</p>
+            <label><input data-correct="true"  name="main_q1_5" type="radio" value="Move to bin"> A. It’s clutter—he
+                   should move the timber to a designated scrap bin immediately to prevent tripping.</label><br>
+            <label><input data-correct="false" name="main_q1_5" type="radio" value="Not urgent"> B. It’s not
+                   urgent—waiting until the end of class is acceptable.</label><br>
+            <label><input data-correct="false" name="main_q1_5" type="radio" value="Teacher only"> C. Only the teacher
+                   can pick up scrap—he should keep working.</label><br>
+            <label><input data-correct="false" name="main_q1_5" type="radio" value="Keep as scrap"> D. It’s useful
+                   scrap—he can leave it and pick it up later.</label>
+          </li>
+
+          <!-- 6 -->
+          <li>
+            <p><b>Scenario:</b> Lee notices that the bench’s power outlets have exposed wires under the counter, but he
+               continues working on his project without reporting it.<br>
+               Why is ignoring exposed wiring risky, and what is the proper immediate step?</p>
+            <label><input data-correct="false" name="main_q1_6" type="radio" value="Check wetness"> A. Exposed wires
+                   only pose a hazard if wet—he should check if it’s damp first.</label><br>
+            <label><input data-correct="true"  name="main_q1_6" type="radio" value="Inform teacher"> B. Exposed wires
+                   risk electrocution; he should inform the teacher immediately and keep a safe distance until it’s
+                   fixed.</label><br>
+            <label><input data-correct="false" name="main_q1_6" type="radio" value="Plug in drill"> C. He should plug
+                   his drill in regardless—tools need power.</label><br>
+            <label><input data-correct="false" name="main_q1_6" type="radio" value="Cover with tape"> D. He should cover
+                   the wires with tape and continue working.</label>
+          </li>
+
+          <!-- 7 -->
+          <li>
+            <p><b>Scenario:</b> Drew picks up a metal rod near a sanding machine and then touches his forehead, leaving
+               metallic dust on his skin.<br>
+               What safety practice did Drew neglect, and what is the appropriate step when handling metal dust?</p>
+            <label><input data-correct="false" name="main_q1_7" type="radio" value="Masking tape"> A. He neglected to
+                   wear masking tape; he should tape dust away.</label><br>
+            <label><input data-correct="true"  name="main_q1_7" type="radio" value="Dust mask and gloves"> B. He
+                   neglected wearing a dust mask and gloves; he should put on PPE (dust mask and gloves) before handling
+                   metal and wash his hands before touching his face.</label><br>
+            <label><input data-correct="false" name="main_q1_7" type="radio" value="Ear protection"> C. He neglected
+                   wearing ear protection; he should use ear muffs.</label><br>
+            <label><input data-correct="false" name="main_q1_7" type="radio" value="Steel-toe boots"> D. He neglected
+                   wearing steel-toe boots; he should swap footwear.</label>
+          </li>
+
+          <!-- 8 -->
+          <li>
+            <p><b>Scenario:</b> Nora adjusts the overhead fluorescent lights but stands on a rolling stool that moves as
+               soon as she applies pressure.<br>
+               What mistake is she making, and what is the safer alternative?</p>
+            <label><input data-correct="false" name="main_q1_8" type="radio" value="Stand on stool"> A. She should stand
+                   on the stool—higher is better.</label><br>
+            <label><input data-correct="true"  name="main_q1_8" type="radio" value="Use stepladder"> B. Using a rolling
+                   stool is unstable; she should use a stable stepladder or platform with a flat, non-slip
+                   surface.</label><br>
+            <label><input data-correct="false" name="main_q1_8" type="radio" value="Stack stools"> C. She should stack
+                   stools to reach higher.</label><br>
+            <label><input data-correct="false" name="main_q1_8" type="radio" value="Climb bench"> D. She should climb on
+                   the bench—benches are sturdier.</label>
+          </li>
+
+          <!-- 9 -->
+          <li>
+            <p><b>Scenario:</b> Pat cleans a spilled solvent on the bench with a cloth but leaves the rag near an
+               electrical outlet.<br>
+               Why is placing a solvent-soaked rag near an electrical outlet hazardous, and what should Pat have done
+               instead?</p>
+            <label><input data-correct="false" name="main_q1_9" type="radio" value="Not flammable"> A. It’s fine—solvent
+                   rags are not flammable.</label><br>
+            <label><input data-correct="true"  name="main_q1_9" type="radio" value="Flammable—flammables bin"> B. Many
+                   solvents are flammable; he should place the rag in a designated metal “flammables” bin away from
+                   ignition sources.</label><br>
+            <label><input data-correct="false" name="main_q1_9" type="radio" value="Leave on floor"> C. He should
+                   instead leave it on the floor—closer to a window.</label><br>
+            <label><input data-correct="false" name="main_q1_9" type="radio" value="Wash rag"> D. He should wash the rag
+                   in cold water immediately.</label>
+          </li>
+
+          <!-- 10 -->
+          <li>
+            <p><b>Scenario:</b> Quinn enters the workshop wearing open-toe sandals, despite signs requiring closed shoes.
+               He proceeds to cut timber while focusing on aligning the blade.<br>
+               What is the hazard of wearing sandals in the workshop, and what footwear should Quinn have chosen?</p>
+            <label><input data-correct="true"  name="main_q1_10" type="radio" value="Closed shoes"> A. Sandals allow wood
+                   chips to land on feet—he should wear closed, non-slip leather shoes or safety boots.</label><br>
+            <label><input data-correct="false" name="main_q1_10" type="radio" value="Rubber mats"> B. Sandals are fine
+                   if he stays on rubber mats.</label><br>
+            <label><input data-correct="false" name="main_q1_10" type="radio" value="Only welding"> C. Sandals only
+                   matter during welding—he’s safe while cutting wood.</label><br>
+            <label><input data-correct="false" name="main_q1_10" type="radio" value="Stand still"> D. Sandals are
+                   acceptable if he stands very still.</label>
+          </li>
+        </ol>
+
+        <!-- NOTE: quizNumber "M001" starts with M → logs to "Main Theory" tab -->
+        <button class="check-btn" type="button" onclick="submitQuiz(this, 'M001')">Check Answers</button>
+        <span class="quiz-msg"></span>
+      </fieldset>
+    </form>
+    <!-- ===== END QUIZ ===== -->
+  </article>
+</details>
+
+<!-- ========== SCRIPT ========== -->
+<script>
+/**
+ * submitQuiz()
+ * Collects answers, scores quiz, and POSTs results to your Google Apps Script web-app.
+ * The first character of quizNumber (M/S/A) decides which sheet tab receives the data.
+ */
+function submitQuiz(button, quizNumber) {
+  const form = button.closest('form');
+  const questions = form.querySelectorAll('ol > li');
+  let correctCount = 0;
+  const responses = [];
+
+  questions.forEach((q, idx) => {
+    const selected = q.querySelector('input[type="radio"]:checked');
+    const correct = q.querySelector('input[data-correct="true"]');
+    responses.push({
+      question: idx + 1,
+      selected: selected ? selected.value : null,
+      correct: selected === correct
+    });
+    if (selected === correct) correctCount++;
+  });
+
+  const score = Math.round(correctCount / questions.length * 100);
+
+  // Collect minimal student info – for quick testing we prompt
+  const studentName = prompt('Enter your name for the record:', '').trim();
+
+  // Build payload
+  const payload = {
+    timestamp: new Date().toISOString(),
+    studentName: studentName,
+    quizType: form.dataset.week || 'Week 1',
+    quizNumber: quizNumber,
+    score: score,
+    responses: responses
+  };
+
+  // Send to Apps Script endpoint
+  fetch('https://script.google.com/macros/s/AKfycbwt1uOZqNOj87bD1ALwaVNV68LqPLC6jWzP12t4hBfjNbOUEiHZ_PH7VqSg7zi4nnYc/exec', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(payload)
+  })
+  .then(res => res.text())
+  .then(msg => {
+    form.querySelector('.quiz-msg').textContent =
+      `Submitted! Score: ${score}%.`;
+    console.log('Server:', msg);
+  })
+  .catch(err => {
+    form.querySelector('.quiz-msg').textContent =
+      'Error submitting – check console.';
+    console.error(err);
+  });
+}
+</script>
+
+</body>
+</html>

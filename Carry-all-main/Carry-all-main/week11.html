@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Week 11 – Handles, Hardware & Functional Design" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 11 – Handles, Hardware & Functional Design</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
+    header { background: #007bff; color: #fff; padding: 20px; text-align: center; }
+    nav { display: flex; justify-content: center; background: #0056b3; flex-wrap: wrap; }
+    nav a { padding: 15px 20px; color: #fff; text-decoration: none; }
+    nav a.active, nav a:hover { background: #003f80; }
+    main.content { padding: 20px; }
+    .content-section { background: #fff; margin: 10px auto; padding: 20px; width: 90%; max-width: 800px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 5px; }
+    h2, h3 { color: #007bff; }
+    ul { margin: 10px 0 15px 20px; }
+    .quiz { background: #f9f9f9; padding: 15px; border: 1px solid #ddd; margin-top: 20px; border-radius: 5px; }
+    .quiz ol { padding-left: 20px; }
+    .quiz li { margin-bottom: 15px; }
+    .quiz button { margin-top: 10px; padding: 8px 12px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .quiz-msg { display: block; margin-top: 10px; font-weight: bold; }
+  </style>
+  
+<script>
+    function submitQuiz() {
+      const name = document.getElementById('studentName').value.trim();
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+      const answers = {
+        q1: '2', q2: '2', q3: '3', q4: '3', q5: '3',
+        q6: '3', q7: '2', q8: '2', q9: '3', q10: '2'
+      };
+      let correct = 0;
+      const total = Object.keys(answers).length;
+      for (let q in answers) {
+        const sel = document.querySelector('input[name="' + q + '"]:checked');
+        if (sel && sel.value === answers[q]) correct++;
+      }
+      document.getElementById('quizResult').textContent =
+        `Thanks ${name}, you scored ${correct}/${total}.`;
+      fetch('https://script.google.com/macros/s/AKfycbwgGErectw_UVCyTxfRyA14mTSBssJ2r88_UiQU0CrxQs1vQ8plSuAueFNCTLS8nmBJ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, week: 'Week 11', score: correct })
+      });
+      alert('Your mark has been submitted to your teacher');
+    }
+</script>
+
+</head>
+<body>
+  <header>
+    <h1>Carry-all Project – Week 11</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="week10.html">← Previous</a>
+    <a href="week11.html" class="active">Week 11</a>
+    <a href="week12.html">Next →</a>
+  </nav>
+  <main class="content">
+    <section class="content-section">
+      <h2>Week 11: Handles, Hardware &amp; Functional Design</h2>
+      <h3>Introduction</h3>
+      <p>Now that the main structure of your Carry-all is complete, it's time to focus on hardware elements — especially handles, hinges, and functional features. These final additions may seem small, but they have a big impact on how your project looks, feels, and works.</p>
+      <h3>Types of Handles</h3>
+      <ul>
+        <li><strong>Integrated timber handle</strong> – part of the side panels or shaped into the top rail</li>
+        <li><strong>Dowel handle</strong> – a round rod fixed through or across the top</li>
+        <li><strong>Rope handle</strong> – threaded through holes and knotted inside</li>
+        <li><strong>Metal hardware handle</strong> – pre-made and screwed in place</li>
+      </ul>
+      <p><em>Good handle placement:</em> Centres the weight when carrying, feels comfortable in the hand, and avoids blocking access to tools inside.</p>
+      <h3>Attaching Hardware Safely</h3>
+      <p>Whether you're adding hinges for a lid, metal handles, or corner braces, you need to mark carefully, pre-drill small pilot holes, and screw in gently. Pilot holes help prevent timber from splitting, screws from going in crooked, and surface damage or blowout. Use a bradawl or punch to start the hole before drilling, and always test operation of moving parts before final tightening.</p>
+      <h3>Improving Functionality</h3>
+      <ul>
+        <li>Add tool racks inside</li>
+        <li>Include dividers for sections</li>
+        <li>Attach rubber feet underneath</li>
+        <li>Shape the base to stop it tipping</li>
+      </ul>
+      <h3>Discussion Starters</h3>
+      <ul>
+        <li>Which handle style fits your project best?</li>
+        <li>What did you learn about pilot holes and why they matter?</li>
+        <li>What small improvements could make your Carry-all more user-friendly?</li>
+      </ul>
+    </section>
+    <section class="content-section quiz">
+      <p><strong>Enter your name to begin:</strong></p>
+      <input type="text" id="studentName" placeholder="Your full name" required>
+      <h2>Have You Been Paying Attention? – Week 11 Quiz</h2>
+      <form id="week11-quiz">
+        <ol>
+          <li>
+            <p>What is the purpose of a handle on your Carry-all?</p>
+            <label><input type="radio" name="q1" value="1"> Decoration only</label><br>
+            <label><input type="radio" name="q1" value="2"> To make it easier and more comfortable to carry</label><br>
+            <label><input type="radio" name="q1" value="3"> To hang the project from the wall</label><br>
+            <label><input type="radio" name="q1" value="4"> To cover the top</label>
+          </li>
+          <li>
+            <p>Why should the handle be centred on the project?</p>
+            <label><input type="radio" name="q2" value="1"> So it looks symmetrical in photos</label><br>
+            <label><input type="radio" name="q2" value="2"> So the weight is balanced while being carried</label><br>
+            <label><input type="radio" name="q2" value="3"> So it fits inside a box</label><br>
+            <label><input type="radio" name="q2" value="4"> So it's easier to sand</label>
+          </li>
+          <li>
+            <p>Which handle type is made by shaping the timber itself?</p>
+            <label><input type="radio" name="q3" value="1"> Rope handle</label><br>
+            <label><input type="radio" name="q3" value="2"> Dowel handle</label><br>
+            <label><input type="radio" name="q3" value="3"> Integrated timber handle</label><br>
+            <label><input type="radio" name="q3" value="4"> Hinged handle</label>
+          </li>
+          <li>
+            <p>What is the function of a pilot hole?</p>
+            <label><input type="radio" name="q4" value="1"> To help paint stick</label><br>
+            <label><input type="radio" name="q4" value="2"> To make sanding easier</label><br>
+            <label><input type="radio" name="q4" value="3"> To guide the screw and prevent the timber from splitting</label><br>
+            <label><input type="radio" name="q4" value="4"> To test saw sharpness</label>
+          </li>
+          <li>
+            <p>What tool can be used to mark the starting point for a drill hole?</p>
+            <label><input type="radio" name="q5" value="1"> Hammer</label><br>
+            <label><input type="radio" name="q5" value="2"> Try square</label><br>
+            <label><input type="radio" name="q5" value="3"> Bradawl or centre punch</label><br>
+            <label><input type="radio" name="q5" value="4"> Ruler</label>
+          </li>
+          <li>
+            <p>When adding hinges or moving parts, what should you always do before final screwing?</p>
+            <label><input type="radio" name="q6" value="1"> Paint them</label><br>
+            <label><input type="radio" name="q6" value="2"> Remove them again</label><br>
+            <label><input type="radio" name="q6" value="3"> Test how they operate</label><br>
+            <label><input type="radio" name="q6" value="4"> Cut through them</label>
+          </li>
+          <li>
+            <p>What problem can happen if you don’t drill a pilot hole?</p>
+            <label><input type="radio" name="q7" value="1"> The handle will be too loose</label><br>
+            <label><input type="radio" name="q7" value="2"> The timber may split</label><br>
+            <label><input type="radio" name="q7" value="3"> The screw will disappear</label><br>
+            <label><input type="radio" name="q7" value="4"> You’ll lose your place</label>
+          </li>
+          <li>
+            <p>Which of the following would be considered a functional design improvement?</p>
+            <label><input type="radio" name="q8" value="1"> Adding glitter to the corners</label><br>
+            <label><input type="radio" name="q8" value="2"> Adding rubber feet to prevent slipping</label><br>
+            <label><input type="radio" name="q8" value="3"> Drawing a logo on the base</label><br>
+            <label><input type="radio" name="q8" value="4"> Sanding only the bottom</label>
+          </li>
+          <li>
+            <p>Why might you add internal dividers to your Carry-all?</p>
+            <label><input type="radio" name="q9" value="1"> To use more timber</label><br>
+            <label><input type="radio" name="q9" value="2"> To make it heavier</label><br>
+            <label><input type="radio" name="q9" value="3"> To organise tools or separate items</label><br>
+            <label><input type="radio" name="q9" value="4"> To cover mistakes</label>
+          </li>
+          <li>
+            <p>What does good hardware placement require?</p>
+            <label><input type="radio" name="q10" value="1"> Thick nails and fast drying glue</label><br>
+            <label><input type="radio" name="q10" value="2"> Careful measuring, marking, and pilot holes</label><br>
+            <label><input type="radio" name="q10" value="3"> Freehand drawing with a pen</label><br>
+            <label><input type="radio" name="q10" value="4"> Screwing directly into any surface</label>
+          </li>
+        </ol>
+        <button type="button" onclick="submitQuiz()">Check Answers</button>
+        <span id="quizResult" class="quiz-msg"></span>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Week 4 – From Workshop to Factory – How Joinery Scales Up" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 4 – From Workshop to Factory</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
+    header { background: #007bff; color: #fff; padding: 20px; text-align: center; }
+    nav { display: flex; justify-content: center; background: #0056b3; flex-wrap: wrap; }
+    nav a { padding: 15px 20px; color: #fff; text-decoration: none; }
+    nav a.active, nav a:hover { background: #003f80; }
+    main.content { padding: 20px; }
+    .content-section { background: #fff; margin: 10px auto; padding: 20px; width: 90%; max-width: 800px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 5px; }
+    h2, h3 { color: #007bff; }
+    .quiz { background: #f9f9f9; padding: 15px; border: 1px solid #ddd; margin-top: 20px; border-radius: 5px; }
+    .quiz ol { padding-left: 20px; }
+    .quiz li { margin-bottom: 15px; }
+    .quiz button { margin-top: 10px; padding: 8px 12px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .quiz-msg { display: block; margin-top: 10px; font-weight: bold; }
+  </style>
+  
+<script>
+    function submitQuiz() {
+      const name = document.getElementById('studentName').value.trim();
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+      const answers = {
+        q1: '2', q2: '2', q3: '2', q4: '3', q5: '2',
+        q6: '1', q7: '1', q8: '2', q9: '1', q10: '2'
+      };
+      let correct = 0;
+      const total = Object.keys(answers).length;
+      for (let q in answers) {
+        const sel = document.querySelector('input[name="' + q + '"]:checked');
+        if (sel && sel.value === answers[q]) correct++;
+      }
+      document.getElementById('quizResult').textContent = 
+        `Thanks ${name}, you scored ${correct}/${total}.`;
+      fetch('https://script.google.com/macros/s/AKfycbwgGErectw_UVCyTxfRyA14mTSBssJ2r88_UiQU0CrxQs1vQ8plSuAueFNCTLS8nmBJ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, week: 'Week 4', score: correct })
+      });
+      alert('Your mark has been submitted to your teacher');
+    }
+</script>
+
+</head>
+<body>
+  <header>
+    <h1>Carry-all Project – Week 4</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="week3.html">← Previous</a>
+    <a href="week4.html" class="active">Week 4</a>
+    <a href="week5.html">Next →</a>
+  </nav>
+  <main class="content">
+    <section class="content-section">
+      <h2>Week 4: From Workshop to Factory – How Joinery Scales Up</h2>
+      <h3>Introduction</h3>
+      <p>This week we step out of the school workshop and into the world of industrial production. You’ll compare how joints and timber projects are made in class versus how they’re made in factories using advanced tools like CNC routers and laser cutters.</p>
+      <h3>Relative vs Absolute Measurement</h3>
+      <p>In the workshop, we use <strong>relative measurement</strong>—lining up parts, tracing shapes, and making one piece fit another. Factories rely on <strong>absolute measurement</strong>, where every part must match an exact size (e.g., 30.00mm) so it fits any other part off the line. No “close enough” allowed within tight tolerances.</p>
+      <h3>Templates and Jigs</h3>
+      <p>To make production faster and more accurate, both schools and factories use:</p>
+      <ul>
+        <li><strong>Templates</strong>—patterns for tracing consistent shapes</li>
+        <li><strong>Jigs</strong>—devices that hold workpieces and guide tools for repeat cuts</li>
+      </ul>
+      <h3>CNC Routers and Laser Cutters</h3>
+      <p><strong>CNC routers</strong> follow computer instructions to cut timber into perfect shapes repeatedly. <strong>Laser cutters</strong> use a focused beam of light for precise cuts and fine details. Both depend on accurate digital design files.</p>
+      <h3>Sustainable Joinery: Finger Jointing at Scale</h3>
+      <p>Factories use large-scale finger-jointing to join short offcuts into long boards, minimizing waste. It’s a smart way to recycle material and improve sustainability.</p>
+      <h3>Discussion Starters</h3>
+      <ul>
+        <li>What are the pros and cons of hand-building vs machine production?</li>
+        <li>Would you rather cut one perfect joint by hand or 100 decent ones with a CNC router?</li>
+        <li>How do jigs and templates improve your own workshop results?</li>
+      </ul>
+    </section>
+    <section class="content-section quiz">
+      <p><strong>Enter your name to begin:</strong></p>
+      <input type="text" id="studentName" placeholder="Your full name" required>
+      <h2>Have You Been Paying Attention? – Week 4 Quiz</h2>
+      <form id="week4-quiz">
+        <ol>
+          <li><p>What is the key difference between relative and absolute measurement?</p>
+            <label><input type="radio" name="q1" value="1"> Relative uses millimetres, absolute uses inches</label><br>
+            <label><input type="radio" name="q1" value="2"> Relative fits one part to another; absolute ensures each part is same size</label><br>
+            <label><input type="radio" name="q1" value="3"> Relative is used in industry, absolute in hand tools</label><br>
+            <label><input type="radio" name="q1" value="4"> There is no difference</label>
+          </li>
+          <li><p>What is the main benefit of using a jig?</p>
+            <label><input type="radio" name="q2" value="1"> It keeps your tools sharp</label><br>
+            <label><input type="radio" name="q2" value="2"> It helps repeat the same cut or shape accurately and safely</label><br>
+            <label><input type="radio" name="q2" value="3"> It replaces the need for PPE</label><br>
+            <label><input type="radio" name="q2" value="4"> It marks the face edge for you</label>
+          </li>
+          <li><p>What is a CNC machine?</p>
+            <label><input type="radio" name="q3" value="1"> A hand-held cutting tool</label><br>
+            <label><input type="radio" name="q3" value="2"> A computer-controlled router that cuts based on digital instructions</label><br>
+            <label><input type="radio" name="q3" value="3"> A type of glue</label><br>
+            <label><input type="radio" name="q3" value="4"> A timber drying oven</label>
+          </li>
+          <li><p>What does a laser cutter use to cut timber?</p>
+            <label><input type="radio" name="q4" value="1"> High-speed blades</label><br>
+            <label><input type="radio" name="q4" value="2"> Compressed air</label><br>
+            <label><input type="radio" name="q4" value="3"> A focused beam of light</label><br>
+            <label><input type="radio" name="q4" value="4"> Sanding friction</label>
+          </li>
+          <li><p>Why do factories use absolute measurement?</p>
+            <label><input type="radio" name="q5" value="1"> It’s easier for apprentices</label><br>
+            <label><input type="radio" name="q5" value="2"> Every part must fit perfectly with others</label><br>
+            <label><input type="radio" name="q5" value="3"> It looks neater on paper</label><br>
+            <label><input type="radio" name="q5" value="4"> It's required by law</label>
+          </li>
+          <li><p>What is the benefit of using a template in school projects?</p>
+            <label><input type="radio" name="q6" value="1"> It helps you choose timber faster</label><br>
+            <label><input type="radio" name="q6" value="2"> It ensures consistent shapes without measuring every time</label><br>
+            <label><input type="radio" name="q6" value="3"> It lets you skip marking out</label><br>
+            <label><input type="radio" name="q6" value="4"> It replaces the need for joints</label>
+          </li>
+          <li><p>What is finger-jointing used for in factories?</p>
+            <label><input type="radio" name="q7" value="1"> Decorating timber</label><br>
+            <label><input type="radio" name="q7" value="2"> Joining short offcuts into longer boards</label><br>
+            <label><input type="radio" name="q7" value="3"> Making timber waterproof</label><br>
+            <label><input type="radio" name="q7" value="4"> Preventing knots</label>
+          </li>
+          <li><p>Why is finger-jointing considered sustainable?</p>
+            <label><input type="radio" name="q8" value="1"> It adds extra glue</label><br>
+            <label><input type="radio" name="q8" value="2"> It reduces timber waste by recycling offcuts</label><br>
+            <label><input type="radio" name="q8" value="3"> It helps grow new trees</label><br>
+            <label><input type="radio" name="q8" value="4"> It uses less electricity</label>
+          </li>
+          <li><p>What do you need to run a CNC or laser cutter properly?</p>
+            <label><input type="radio" name="q9" value="1"> A fully charged drill battery</label><br>
+            <label><input type="radio" name="q9" value="2"> A digital file with design instructions</label><br>
+            <label><input type="radio" name="q9" value="3"> A water-cooling system</label><br>
+            <label><input type="radio" name="q9" value="4"> A sharpening stone</label>
+          </li>
+          <li><p>Which of the following is a benefit of hand-building a joint?</p>
+            <label><input type="radio" name="q10" value="1"> Guarantees perfect results</label><br>
+            <label><input type="radio" name="q10" value="2"> Develops fine motor skills and craftsmanship</label><br>
+            <label><input type="radio" name="q10" value="3"> Works faster than a CNC</label><br>
+            <label><input type="radio" name="q10" value="4"> Doesn’t require planning</label>
+          </li>
+        </ol>
+        <button type="button" onclick="submitQuiz()">Check Answers</button>
+        <span id="quizResult" class="quiz-msg"></span>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

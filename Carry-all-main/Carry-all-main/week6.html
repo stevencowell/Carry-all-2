@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Week 6 – Timber, Sustainability & Smart Design" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 6 – Timber, Sustainability & Smart Design</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
+    header { background: #007bff; color: #fff; padding: 20px; text-align: center; }
+    nav { display: flex; justify-content: center; background: #0056b3; flex-wrap: wrap; }
+    nav a { padding: 15px 20px; color: #fff; text-decoration: none; }
+    nav a.active, nav a:hover { background: #003f80; }
+    main.content { padding: 20px; }
+    .content-section { background: #fff; margin: 10px auto; padding: 20px; width: 90%; max-width: 800px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 5px; }
+    h2, h3 { color: #007bff; }
+    ul, ol { margin: 10px 0 15px 20px; }
+    .quiz { background: #f9f9f9; padding: 15px; border: 1px solid #ddd; margin-top: 20px; border-radius: 5px; }
+    .quiz ol { padding-left: 20px; }
+    .quiz li { margin-bottom: 15px; }
+    .quiz button { margin-top: 10px; padding: 8px 12px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .quiz-msg { display: block; margin-top: 10px; font-weight: bold; }
+  </style>
+  
+<script>
+    function submitQuiz() {
+      const name = document.getElementById('studentName').value.trim();
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+      const answers = {
+        q1: '3', q2: '2', q3: '3', q4: '3', q5: '2',
+        q6: '3', q7: '3', q8: '2', q9: '3', q10: '3'
+      };
+      let correct = 0;
+      const total = Object.keys(answers).length;
+      for (let q in answers) {
+        const sel = document.querySelector('input[name="' + q + '"]:checked');
+        if (sel && sel.value === answers[q]) correct++;
+      }
+      document.getElementById('quizResult').textContent = 
+        `Thanks ${name}, you scored ${correct}/${total}.`;
+      fetch('https://script.google.com/macros/s/AKfycbwgGErectw_UVCyTxfRyA14mTSBssJ2r88_UiQU0CrxQs1vQ8plSuAueFNCTLS8nmBJ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, week: 'Week 6', score: correct })
+      });
+      alert('Your mark has been submitted to your teacher');
+    }
+</script>
+
+</head>
+<body>
+  <header>
+    <h1>Carry-all Project – Week 6</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="week5.html">← Previous</a>
+    <a href="week6.html" class="active">Week 6</a>
+    <a href="week7.html">Next →</a>
+  </nav>
+  <main class="content">
+    <section class="content-section">
+      <h2>Week 6: Timber, Sustainability &amp; Smart Design</h2>
+      <h3>Introduction</h3>
+      <p>This week’s focus is on timber as a sustainable building material — what that means, why it matters, and how design choices affect the environment. Wood isn’t just a beautiful, workable material — it’s also one of the most sustainable if managed correctly. We'll explore how choices around timber species, manufacturing processes, and design can reduce environmental impact.</p>
+      <p>You’ll also be asked to think critically about your own Carry-all project. Are you using materials efficiently? Could your design waste less wood or last longer?</p>
+      <h3>Why Timber is a Renewable Resource</h3>
+      <p>Unlike concrete, metal, or plastic, timber comes from trees — living organisms that grow back over time. If harvested responsibly (e.g., from plantations or sustainably managed forests), timber is:</p>
+      <ul>
+        <li><strong>Renewable</strong> – more trees can be planted</li>
+        <li><strong>Biodegradable</strong> – it breaks down naturally</li>
+        <li><strong>Carbon storing</strong> – trees absorb CO₂ as they grow, and that carbon remains stored in the timber</li>
+      </ul>
+      <p>Because of this, timber products (like your Carry-all) have a much smaller carbon footprint compared to other materials — especially if they’re well-made and long-lasting.</p>
+      <h3>Smart Use of Timber in Industry</h3>
+      <p>Modern timber production is becoming increasingly eco-conscious. Techniques like:</p>
+      <ul>
+        <li>Finger-jointing offcuts into longer boards</li>
+        <li>Engineered timbers (like CLT and Glulam)</li>
+        <li>Water-based finishes and glues</li>
+        <li>Optimisation software to plan cuts and reduce waste</li>
+      </ul>
+      <h3>Designing for the Environment</h3>
+      <p>Sustainable design starts with asking questions like:</p>
+      <ul>
+        <li>How long will this product last?</li>
+        <li>Can it be repaired instead of replaced?</li>
+        <li>Can offcuts be reused?</li>
+        <li>Is the timber sourced ethically?</li>
+      </ul>
+      <p>In your Carry-all, you can apply this thinking by avoiding mistakes that cause re-cutting, reducing waste, and treating your timber with care so it lasts for years.</p>
+      <h3>Discussion Starters</h3>
+      <ul>
+        <li>How does timber compare to plastic or steel in environmental impact?</li>
+        <li>What are simple ways to reduce waste in student projects?</li>
+        <li>How might your thinking about timber change after knowing its environmental benefits?</li>
+      </ul>
+    </section>
+    <section class="content-section quiz">
+      <p><strong>Enter your name to begin:</strong></p>
+      <input type="text" id="studentName" placeholder="Your full name" required>
+      <h2>Have You Been Paying Attention? – Week 6 Quiz</h2>
+      <form id="week6-quiz">
+        <ol>
+          <li><p>Why is timber considered a renewable resource?</p>
+            <label><input type="radio" name="q1" value="1"> It can be mined like metal</label><br>
+            <label><input type="radio" name="q1" value="2"> It lasts forever without maintenance</label><br>
+            <label><input type="radio" name="q1" value="3"> Trees can regrow when managed responsibly</label><br>
+            <label><input type="radio" name="q1" value="4"> It doesn’t need to be harvested</label>
+          </li>
+          <li><p>What environmental benefit do trees provide even after being cut into timber?</p>
+            <label><input type="radio" name="q2" value="1"> They grow back instantly</label><br>
+            <label><input type="radio" name="q2" value="2"> They continue to store carbon absorbed during growth</label><br>
+            <label><input type="radio" name="q2" value="3"> They stop climate change completely</label><br>
+            <label><input type="radio" name="q2" value="4"> They fertilise the soil</label>
+          </li>
+          <li><p>What is one reason engineered wood products are considered sustainable?</p>
+            <label><input type="radio" name="q3" value="1"> They are made using recycled plastic</label><br>
+            <label><input type="radio" name="q3" value="2"> They are coated in metal</label><br>
+            <label><input type="radio" name="q3" value="3"> They combine small timber pieces to reduce waste and increase strength</label><br>
+            <label><input type="radio" name="q3" value="4"> They are cut by hand only</label>
+          </li>
+          <li><p>What is the purpose of using optimisation software in timber factories?</p>
+            <label><input type="radio" name="q4" value="1"> To choose the colour of the stain</label><br>
+            <label><input type="radio" name="q4" value="2"> To check how loud machines are</label><br>
+            <label><input type="radio" name="q4" value="3"> To arrange cuts to reduce waste from each board</label><br>
+            <label><input type="radio" name="q4" value="4"> To water the trees automatically</label>
+          </li>
+          <li><p>What does “carbon footprint” refer to?</p>
+            <label><input type="radio" name="q5" value="1"> The shape of a tree stump</label><br>
+            <label><input type="radio" name="q5" value="2"> The amount of carbon emissions caused by making or using something</label><br>
+            <label><input type="radio" name="q5" value="3"> How much dust timber produces</label><br>
+            <label><input type="radio" name="q5" value="4"> A type of foot protection in the workshop</label>
+          </li>
+          <li><p>Which of the following is a sustainable workshop practice?</p>
+            <label><input type="radio" name="q6" value="1"> Leaving machines running to save time later</label><br>
+            <label><input type="radio" name="q6" value="2"> Throwing out all offcuts</label><br>
+            <label><input type="radio" name="q6" value="3"> Using offcuts creatively in smaller projects</label><br>
+            <label><input type="radio" name="q6" value="4"> Sanding timber for longer than needed</label>
+          </li>
+          <li><p>Why is it better to use water-based finishes when possible?</p>
+            <label><input type="radio" name="q7" value="1"> They dry slower</label><br>
+            <label><input type="radio" name="q7" value="2"> They are more expensive</label><br>
+            <label><input type="radio" name="q7" value="3"> They release fewer harmful chemicals into the air</label><br>
+            <label><input type="radio" name="q7" value="4"> They make timber fireproof</label>
+          </li>
+          <li><p>What does “biodegradable” mean in relation to timber?</p>
+            <label><input type="radio" name="q8" value="1"> It smells good when burnt</label><br>
+            <label><input type="radio" name="q8" value="2"> It naturally breaks down over time without harming the environment</label><br>
+            <label><input type="radio" name="q8" value="3"> It can be bent and shaped</label><br>
+            <label><input type="radio" name="q8" value="4"> It changes colour in the sun</label>
+          </li>
+          <li><p>What’s one way to reduce timber waste on your Carry-all?</p>
+            <label><input type="radio" name="q9" value="1"> Measure without using the face side</label><br>
+            <label><input type="radio" name="q9" value="2"> Cut freehand whenever possible</label><br>
+            <label><input type="radio" name="q9" value="3"> Double-check your measurements and avoid re-cutting</label><br>
+            <label><input type="radio" name="q9" value="4"> Use oversized pieces and trim them later</label>
+          </li>
+          <li><p>Which of the following is not a sustainable practice?</p>
+            <label><input type="radio" name="q10" value="1"> Using recycled timber</label><br>
+            <label><input type="radio" name="q10" value="2"> Designing for long-term use</label><br>
+            <label><input type="radio" name="q10" value="3"> Cutting extra pieces just in case</label><br>
+            <label><input type="radio" name="q10" value="4"> Sharing offcuts with classmates</label>
+          </li>
+        </ol>
+        <button type="button" onclick="submitQuiz()">Check Answers</button>
+        <span id="quizResult" class="quiz-msg"></span>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

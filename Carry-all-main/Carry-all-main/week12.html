@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Week 12 – Staining & Varnishing Techniques" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 12 – Staining & Varnishing Techniques</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
+    header { background: #007bff; color: #fff; padding: 20px; text-align: center; }
+    nav { display: flex; justify-content: center; background: #0056b3; flex-wrap: wrap; }
+    nav a { padding: 15px 20px; color: #fff; text-decoration: none; }
+    nav a.active, nav a:hover { background: #003f80; }
+    main.content { padding: 20px; }
+    .content-section { background: #fff; margin: 10px auto; padding: 20px; width: 90%; max-width: 800px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 5px; }
+    h2, h3 { color: #007bff; }
+    ul { margin: 10px 0 15px 20px; }
+    .quiz { background: #f9f9f9; padding: 15px; border: 1px solid #ddd; margin-top: 20px; border-radius: 5px; }
+    .quiz ol { padding-left: 20px; }
+    .quiz li { margin-bottom: 15px; }
+    .quiz button { margin-top: 10px; padding: 8px 12px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .quiz-msg { display: block; margin-top: 10px; font-weight: bold; }
+  </style>
+  
+<script>
+    function submitQuiz() {
+      const name = document.getElementById('studentName').value.trim();
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+      const answers = {
+        q1: '2', q2: '3', q3: '1', q4: '2', q5: '3',
+        q6: '2', q7: '1', q8: '3', q9: '2', q10: '2'
+      };
+      let correct = 0;
+      const total = Object.keys(answers).length;
+      for (let q in answers) {
+        const sel = document.querySelector('input[name="' + q + '"]:checked');
+        if (sel && sel.value === answers[q]) correct++;
+      }
+      document.getElementById('quizResult').textContent =
+        `Thanks ${name}, you scored ${correct}/${total}.`;
+      fetch('https://script.google.com/macros/s/AKfycbwgGErectw_UVCyTxfRyA14mTSBssJ2r88_UiQU0CrxQs1vQ8plSuAueFNCTLS8nmBJ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, week: 'Week 12', score: correct })
+      });
+      alert('Your mark has been submitted to your teacher');
+    }
+</script>
+
+</head>
+<body>
+  <header>
+    <h1>Carry-all Project – Week 12</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="week11.html">← Previous</a>
+    <a href="week12.html" class="active">Week 12</a>
+    <a href="week13.html">Next →</a>
+  </nav>
+  <main class="content">
+    <section class="content-section">
+      <h2>Week 12: Staining &amp; Varnishing Techniques</h2>
+      <h3>Introduction</h3>
+      <p>This week focuses on applying colour and protection to your Carry-all. You’ll learn the difference between stains and varnishes, how to choose the right products, and best practices for application.</p>
+      <h3>Staining Basics</h3>
+      <ul>
+        <li><strong>Stain</strong> penetrates wood fibres, enhancing grain and adding colour.</li>
+        <li>Types: Oil-based, water-based, gel stains.</li>
+        <li>Always stir—don’t shake—to avoid bubbles.</li>
+        <li>Apply with brush or cloth and wipe off excess to control depth.</li>
+      </ul>
+      <h3>Varnishing &amp; Clear Coats</h3>
+      <ul>
+        <li><strong>Varnish</strong> sits on the surface, providing durable, protective finish.</li>
+        <li>Options: Polyurethane (oil- or water-based), spar varnish, lacquer.</li>
+        <li>Apply thin coats with smooth brush or foam applicator.</li>
+        <li>Sand lightly (320–400 grit) between coats for adhesion.</li>
+      </ul>
+      <h3>Surface Preparation &amp; Safety</h3>
+      <ul>
+        <li>Ensure surface is clean, dry, and dust-free.</li>
+        <li>Test on scrap to check colour and compatibility.</li>
+        <li>Work in well-ventilated area; wear gloves and respirator as needed.</li>
+      </ul>
+      <h3>Discussion Starters</h3>
+      <ul>
+        <li>What stain colour would best suit your project and why?</li>
+        <li>How many varnish coats do you plan to apply, and why?</li>
+        <li>What safety measures are important when using solvent-based finishes?</li>
+      </ul>
+    </section>
+    <section class="content-section quiz">
+      <p><strong>Enter your name to begin:</strong></p>
+      <input type="text" id="studentName" placeholder="Your full name" required>
+      <h2>Have You Been Paying Attention? – Week 12 Quiz</h2>
+      <form id="week12-quiz">
+        <ol>
+          <li>
+            <p>What does a wood stain do?</p>
+            <label><input type="radio" name="q1" value="1"> Forms a hard protective layer</label><br>
+            <label><input type="radio" name="q1" value="2"> Penetrates wood fibres and adds colour</label><br>
+            <label><input type="radio" name="q1" value="3"> Seals wood against moisture</label><br>
+            <label><input type="radio" name="q1" value="4"> Changes the wood's density</label>
+          </li>
+          <li>
+            <p>Why should you wipe off excess stain?</p>
+            <label><input type="radio" name="q2" value="1"> To let it soak deeper</label><br>
+            <label><input type="radio" name="q2" value="2"> To avoid tacky feel</label><br>
+            <label><input type="radio" name="q2" value="3"> To control colour intensity and uniformity</label><br>
+            <label><input type="radio" name="q2" value="4"> To make it dry slower</label>
+          </li>
+          <li>
+            <p>Which is an oil-based clear coat?</p>
+            <label><input type="radio" name="q3" value="1"> Polyurethane</label><br>
+            <label><input type="radio" name="q3" value="2"> Gel stain</label><br>
+            <label><input type="radio" name="q3" value="3"> Water-based stain</label><br>
+            <label><input type="radio" name="q3" value="4"> Milk paint</label>
+          </li>
+          <li>
+            <p>How many varnish coats are recommended for a durable finish?</p>
+            <label><input type="radio" name="q4" value="1"> 1 coat</label><br>
+            <label><input type="radio" name="q4" value="2"> 2–3 thin coats, sanding between</label><br>
+            <label><input type="radio" name="q4" value="3"> 5 thick coats</label><br>
+            <label><input type="radio" name="q4" value="4"> 10 coats without sanding</label>
+          </li>
+          <li>
+            <p>What grit sandpaper is best between varnish coats?</p>
+            <label><input type="radio" name="q5" value="1"> 60 grit</label><br>
+            <label><input type="radio" name="q5" value="2"> 120 grit</label><br>
+            <label><input type="radio" name="q5" value="3"> 320–400 grit</label><br>
+            <label><input type="radio" name="q5" value="4"> 600 grit</label>
+          </li>
+          <li>
+            <p>Why is testing on scrap important?</p>
+            <label><input type="radio" name="q6" value="1"> To waste extra material</label><br>
+            <label><input type="radio" name="q6" value="2"> To check colour and compatibility</label><br>
+            <label><input type="radio" name="q6" value="3"> To see how fast it dries</label><br>
+            <label><input type="radio" name="q6" value="4"> To avoid sanding</label>
+          </li>
+          <li>
+            <p>What safety gear is recommended for solvent-based finishes?</p>
+            <label><input type="radio" name="q7" value="1"> Safety glasses only</label><br>
+            <label><input type="radio" name="q7" value="2"> Gloves and respirator</label><br>
+            <label><input type="radio" name="q7" value="3"> Ear protection</label><br>
+            <label><input type="radio" name="q7" value="4"> Steel-toe boots</label>
+          </li>
+          <li>
+            <p>Which application method avoids brush marks?</p>
+            <label><input type="radio" name="q8" value="1"> Roller</label><br>
+            <label><input type="radio" name="q8" value="2"> Brush only</label><br>
+            <label><input type="radio" name="q8" value="3"> Foam applicator or spray</label><br>
+            <label><input type="radio" name="q8" value="4"> Rags dipped in stain</label>
+          </li>
+          <li>
+            <p>Which finish provides the most UV protection?</p>
+            <label><input type="radio" name="q9" value="1"> Water-based stain</label><br>
+            <label><input type="radio" name="q9" value="2"> Clear oil finish</label><br>
+            <label><input type="radio" name="q9" value="3"> Spar varnish</label><br>
+            <label><input type="radio" name="q9" value="4"> Untreated timber</label>
+          </li>
+          <li>
+            <p>What is the last step before the final coat dries?</p>
+            <label><input type="radio" name="q10" value="1"> Add another coat immediately</label><br>
+            <label><input type="radio" name="q10" value="2"> Lightly sand and clean dust</label><br>
+            <label><input type="radio" name="q10" value="3"> Apply paste wax</label><br>
+            <label><input type="radio" name="q10" value="4"> Cover with plastic</label>
+          </li>
+        </ol>
+        <button type="button" onclick="submitQuiz()">Check Answers</button>
+        <span id="quizResult" class="quiz-msg"></span>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

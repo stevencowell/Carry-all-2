@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Week 13 – Project Finalisation & Quality Assurance" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 13 – Project Finalisation & Quality Assurance</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
+    header { background: #007bff; color: #fff; padding: 20px; text-align: center; }
+    nav { display: flex; justify-content: center; background: #0056b3; flex-wrap: wrap; }
+    nav a { padding: 15px 20px; color: #fff; text-decoration: none; }
+    nav a.active, nav a:hover { background: #003f80; }
+    main.content { padding: 20px; }
+    .content-section { background: #fff; margin: 10px auto; padding: 20px; width: 90%; max-width: 800px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 5px; }
+    h2, h3 { color: #007bff; }
+    ul { margin: 10px 0 15px 20px; }
+    .quiz { background: #f9f9f9; padding: 15px; border: 1px solid #ddd; margin-top: 20px; border-radius: 5px; }
+    .quiz ol { padding-left: 20px; }
+    .quiz li { margin-bottom: 15px; }
+    .quiz button { margin-top: 10px; padding: 8px 12px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .quiz-msg { display: block; margin-top: 10px; font-weight: bold; }
+  </style>
+  
+<script>
+    function submitQuiz() {
+      const name = document.getElementById('studentName').value.trim();
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+      const answers = {
+        q1: '3', q2: '2', q3: '1', q4: '3', q5: '2',
+        q6: '1', q7: '3', q8: '2', q9: '1', q10: '2'
+      };
+      let correct = 0;
+      const total = Object.keys(answers).length;
+      for (let q in answers) {
+        const sel = document.querySelector('input[name="' + q + '"]:checked');
+        if (sel && sel.value === answers[q]) correct++;
+      }
+      document.getElementById('quizResult').textContent =
+        `Thanks ${name}, you scored ${correct}/${total}.`;
+      fetch('https://script.google.com/macros/s/AKfycbwgGErectw_UVCyTxfRyA14mTSBssJ2r88_UiQU0CrxQs1vQ8plSuAueFNCTLS8nmBJ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, week: 'Week 13', score: correct })
+      });
+      alert('Your mark has been submitted to your teacher');
+    }
+</script>
+
+</head>
+<body>
+  <header>
+    <h1>Carry-all Project – Week 13</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="week12.html">← Previous</a>
+    <a href="week13.html" class="active">Week 13</a>
+    <a href="week14.html">Next →</a>
+  </nav>
+  <main class="content">
+    <section class="content-section">
+      <h2>Week 13: Project Finalisation &amp; Quality Assurance</h2>
+      <h3>Introduction</h3>
+      <p>This week is all about giving your Carry-all the final polish and ensuring it meets your design, functional, and quality standards. You’ll complete a rigorous quality assurance check and prepare your project for presentation.</p>
+      <h3>Final Assembly Checks</h3>
+      <ul>
+        <li>Re-tighten any loose screws or fasteners</li>
+        <li>Verify glue bonds are fully cured and secure</li>
+        <li>Ensure moving parts (lids, handles) operate smoothly</li>
+      </ul>
+      <h3>Quality Assurance Checklist</h3>
+      <ul>
+        <li><strong>Squareness</strong>: measure diagonals; tolerance within 1–2 mm</li>
+        <li><strong>Joint fit</strong>: no visible gaps</li>
+        <li><strong>Surface finish</strong>: uniform sanding and finish application</li>
+        <li><strong>Hardware</strong>: correct alignment, no stripped screws</li>
+        <li><strong>Functionality</strong>: stable base, easy carry, tools secure</li>
+      </ul>
+      <h3>Documentation &amp; Reflection</h3>
+      <ul>
+        <li>Complete your project sheet with measurements and materials used</li>
+        <li>Write a brief reflection on challenges faced and lessons learned</li>
+        <li>Take photos or annotate steps for your portfolio</li>
+      </ul>
+      <h3>Discussion Starters</h3>
+      <ul>
+        <li>Which QA check is most critical for your Carry-all?</li>
+        <li>How do you decide acceptable tolerances?</li>
+        <li>What did you learn that you will use in your next project?</li>
+      </ul>
+    </section>
+    <section class="content-section quiz">
+      <p><strong>Enter your name to begin:</strong></p>
+      <input type="text" id="studentName" placeholder="Your full name" required>
+      <h2>Have You Been Paying Attention? – Week 13 Quiz</h2>
+      <form id="week13-quiz">
+        <ol>
+          <li>
+            <p>Why is it important to re-tighten screws at final assembly?</p>
+            <label><input type="radio" name="q1" value="1"> To make it look cleaner</label><br>
+            <label><input type="radio" name="q1" value="2"> To increase weight</label><br>
+            <label><input type="radio" name="q1" value="3"> To ensure all hardware is secure and safe</label><br>
+            <label><input type="radio" name="q1" value="4"> To hide glue spots</label>
+          </li>
+          <li>
+            <p>What tolerance is recommended when checking squareness?</p>
+            <label><input type="radio" name="q2" value="1"> 5–10 mm</label><br>
+            <label><input type="radio" name="q2" value="2"> 1–2 mm</label><br>
+            <label><input type="radio" name="q2" value="3"> 10–20 mm</label><br>
+            <label><input type="radio" name="q2" value="4"> No tolerance needed</label>
+          </li>
+          <li>
+            <p>Which item is NOT part of the QA checklist?</p>
+            <label><input type="radio" name="q3" value="1"> Surface finish uniformity</label><br>
+            <label><input type="radio" name="q3" value="2"> Joint fit with no gaps</label><br>
+            <label><input type="radio" name="q3" value="3"> Number of nails visible</label><br>
+            <label><input type="radio" name="q3" value="4"> Functionality of moving parts</label>
+          </li>
+          <li>
+            <p>Why document your materials and measurements?</p>
+            <label><input type="radio" name="q4" value="1"> To sell your project</label><br>
+            <label><input type="radio" name="q4" value="2"> To waste paper</label><br>
+            <label><input type="radio" name="q4" value="3"> To replicate the project later</label><br>
+            <label><input type="radio" name="q4" value="4"> To decorate your workshop</label>
+          </li>
+          <li>
+            <p>What reflection question helps you improve?</p>
+            <label><input type="radio" name="q5" value="1"> What was the easiest part?</label><br>
+            <label><input type="radio" name="q5" value="2"> How many screws were used?</label><br>
+            <label><input type="radio" name="q5" value="3"> What challenges did I overcome?</label><br>
+            <label><input type="radio" name="q5" value="4"> What colour did I choose?</label>
+          </li>
+          <li>
+            <p>Which measurement method checks squareness?</p>
+            <label><input type="radio" name="q6" value="1"> Measuring opposite sides</label><br>
+            <label><input type="radio" name="q6" value="2"> Using a spirit level</label><br>
+            <label><input type="radio" name="q6" value="3"> Measuring diagonals</label><br>
+            <label><input type="radio" name="q6" value="4"> Counting joints</label>
+          </li>
+          <li>
+            <p>What is one sign of a fully cured glue bond?</p>
+            <label><input type="radio" name="q7" value="1"> It feels flexible</label><br>
+            <label><input type="radio" name="q7" value="2"> It has turned yellow</label><br>
+            <label><input type="radio" name="q7" value="3"> It is hard and no longer tacky</label><br>
+            <label><input type="radio" name="q7" value="4"> It smells like solvent</label>
+          </li>
+          <li>
+            <p>Why test moving parts at the end?</p>
+            <label><input type="radio" name="q8" value="1"> To add more glue</label><br>
+            <label><input type="radio" name="q8" value="2"> To ensure they operate smoothly</label><br>
+            <label><input type="radio" name="q8" value="3"> To make them looser</label><br>
+            <label><input type="radio" name="q8" value="4"> To decorate them</label>
+          </li>
+          <li>
+            <p>What should you do before taking final photos?</p>
+            <label><input type="radio" name="q9" value="1"> Leave dust on surfaces</label><br>
+            <label><input type="radio" name="q9" value="2"> Clean and wipe down all areas</label><br>
+            <label><input type="radio" name="q9" value="3"> Add random objects in the shot</label><br>
+            <label><input type="radio" name="q9" value="4"> Turn off all lights</label>
+          </li>
+          <li>
+            <p>Which element is part of functional design improvement?</p><br>
+            <label><input type="radio" name="q10" value="1"> Adding decorative stickers</label><br>
+            <label><input type="radio" name="q10" value="2"> Including tool racks inside</label><br>
+            <label><input type="radio" name="q10" value="3"> Painting with bright colours</label><br>
+            <label><input type="radio" name="q10" value="4"> Sanding corners randomly</label>
+          </li>
+        </ol>
+        <button type="button" onclick="submitQuiz()">Check Answers</button>
+        <span id="quizResult" class="quiz-msg"></span>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

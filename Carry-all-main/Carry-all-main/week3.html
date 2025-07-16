@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Week 3 – Choosing Joints & Understanding Radiata Pine" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 3 – Choosing Joints & Understanding Radiata Pine</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
+    header { background: #007bff; color: #fff; padding: 20px; text-align: center; }
+    nav { display: flex; justify-content: center; background: #0056b3; flex-wrap: wrap; }
+    nav a { padding: 15px 20px; color: #fff; text-decoration: none; }
+    nav a.active, nav a:hover { background: #003f80; }
+    main.content { padding: 20px; }
+    .content-section { background: #fff; margin: 10px auto; padding: 20px; width: 90%; max-width: 800px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 5px; }
+    h2, h3 { color: #007bff; }
+    .quiz { background: #f9f9f9; padding: 15px; border: 1px solid #ddd; margin-top: 20px; border-radius: 5px; }
+    .quiz ol { padding-left: 20px; }
+    .quiz li { margin-bottom: 15px; }
+    .quiz button { margin-top: 10px; padding: 8px 12px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .quiz-msg { display: block; margin-top: 10px; font-weight: bold; }
+  </style>
+  
+<script>
+    function submitQuiz() {
+      const name = document.getElementById('studentName').value.trim();
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+      const answers = {
+        q1: '3',
+        q2: '2',
+        q3: '3',
+        q4: '3',
+        q5: '2',
+        q6: '2',
+        q7: '2',
+        q8: '3',
+        q9: '2',
+        q10: '2'
+      };
+      let correct = 0;
+      const total = Object.keys(answers).length;
+      for (let q in answers) {
+        const sel = document.querySelector('input[name="' + q + '"]:checked');
+        if (sel && sel.value === answers[q]) correct++;
+      }
+      document.getElementById('quizResult').textContent = `Thanks ${name}, you scored ${correct}/${total}.`;
+      // Send results to Google Sheet
+      fetch('https://script.google.com/macros/s/AKfycbwgGErectw_UVCyTxfRyA14mTSBssJ2r88_UiQU0CrxQs1vQ8plSuAueFNCTLS8nmBJ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, week: 'Week 3', score: correct })
+      });
+      alert('Your mark has been submitted to your teacher');
+    }
+</script>
+
+</head>
+<body>
+  <header>
+    <h1>Carry-all Project – Week 3</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="week2.html">← Previous</a>
+    <a href="week3.html" class="active">Week 3</a>
+    <a href="week4.html">Next →</a>
+  </nav>
+  <main class="content">
+    <section class="content-section">
+      <h2>Week 3: Choosing Joints &amp; Understanding Radiata Pine</h2>
+      <h3>Introduction</h3>
+      <p>This week, you’ll start making decisions that shape how your Carry-all will look and hold together. The biggest one? Which joint to use for the corners. You’ve got two excellent options — the dovetail joint or the box-pin (finger) joint. Both are strong, both are used by professional woodworkers, and both will test your skills.</p>
+      <p>You’ll also learn more about Radiata Pine, the timber you’ll be working with. It might be easy to cut, but it also has challenges — and knowing the material is just as important as knowing your tools.</p>
+      <h3>Comparing Joints: Dovetail vs Box-Pin</h3>
+      <p>The corner joint is where your Carry-all gets most of its strength. Here's a quick breakdown of your two choices:</p>
+      <h4>Dovetail Joint</h4>
+      <ul>
+        <li>Has angled “tails” and “pins” that lock together</li>
+        <li>Known for mechanical strength even without glue</li>
+        <li>Requires very accurate marking and careful hand cutting</li>
+        <li>Recognised as a sign of high craftsmanship</li>
+        <li>Great for traditional-looking projects</li>
+      </ul>
+      <h4>Box-Pin (Finger) Joint</h4>
+      <ul>
+        <li>Uses square “fingers” that interlock like puzzle pieces</li>
+        <li>Relies on glue for strength — lots of surface area means a very strong bond</li>
+        <li>Can be cut by hand or with jigs/templates</li>
+        <li>Modern, clean look that suits practical projects</li>
+        <li>Easier to lay out than dovetails</li>
+      </ul>
+      <p><em>Tip:</em> The choice isn’t just about appearance — it’s also about your comfort with marking and cutting accurately. Dovetails are harder to fix if you make a mistake.</p>
+      <h3>Radiata Pine: What You’re Working With</h3>
+      <p>Radiata Pine is a plantation-grown softwood used all over Australia in furniture, framing, and student projects. It’s a great timber to learn with because it’s:</p>
+      <ul>
+        <li>Soft and easy to shape with hand tools</li>
+        <li>Uniform in density, which means it cuts cleanly</li>
+        <li>Stable, as long as it’s selected carefully</li>
+      </ul>
+      <p>But it’s not perfect:</p>
+      <ul>
+        <li>Knots can be hard and unpredictable when sawing</li>
+        <li>It dents easily, so you’ll need to handle it carefully</li>
+        <li>It’s not suitable for outdoors unless treated</li>
+      </ul>
+      <h3>Marking Out for Joinery</h3>
+      <p>Before you cut either joint, marking out is critical. You’ll keep using the face side and face edge system and introduce some new tools:</p>
+      <ul>
+        <li>Marking gauge to scribe consistent baselines</li>
+        <li>Try square for right angles</li>
+        <li>Marking knife for ultra-precise layout lines</li>
+      </ul>
+      <p><strong>Important rule:</strong> Always work from your reference edge and side. Never measure from a random face, or your joint will be out of alignment.</p>
+      <h3>Discussion Starters</h3>
+      <ul>
+        <li>Which joint do you prefer so far — dovetail or box-pin? Why?</li>
+        <li>What properties of Radiata Pine make it good for student woodworking?</li>
+        <li>How does accurate marking make or break a joint?</li>
+      </ul>
+    </section>
+    <section class="content-section quiz">
+      <p><strong>Enter your name to begin:</strong></p>
+      <input type="text" id="studentName" placeholder="Your full name" required>
+      <h2>Have You Been Paying Attention? – Week 3 Quiz</h2>
+      <form id="week3-quiz">
+        <ol>
+          <li>
+            <p>What gives a dovetail joint its strength?</p>
+            <label><input type="radio" name="q1" value="1"> The number of nails used</label><br>
+            <label><input type="radio" name="q1" value="2"> The thickness of the wood</label><br>
+            <label><input type="radio" name="q1" value="3"> The mechanical lock created by angled pins and tails</label><br>
+            <label><input type="radio" name="q1" value="4"> The surface texture of the timber</label>
+          </li>
+          <li>
+            <p>What gives a box-pin joint its strength?</p>
+            <label><input type="radio" name="q2" value="1"> The number of screws used</label><br>
+            <label><input type="radio" name="q2" value="2"> The width of each finger</label><br>
+            <label><input type="radio" name="q2" value="3"> The large surface area for glue adhesion</label><br>
+            <label><input type="radio" name="q2" value="4"> The angled cuts on the pins</label>
+          </li>
+          <li>
+            <p>Why might a student choose a box-pin joint over a dovetail joint?</p>
+            <label><input type="radio" name="q3" value="1"> It is less traditional</label><br>
+            <label><input type="radio" name="q3" value="2"> It is weaker and easier to break apart</label><br>
+            <label><input type="radio" name="q3" value="3"> It is easier to lay out and cut accurately</label><br>
+            <label><input type="radio" name="q3" value="4"> It doesn’t require any marking</label>
+          </li>
+          <li>
+            <p>What visual feature distinguishes a dovetail joint from a box-pin joint?</p>
+            <label><input type="radio" name="q4" value="1"> Dovetail joints use circular holes</label><br>
+            <label><input type="radio" name="q4" value="2"> Box-pin joints are always hidden</label><br>
+            <label><input type="radio" name="q4" value="3"> Dovetail joints have angled shapes; box-pin joints use square fingers</label><br>
+            <label><input type="radio" name="q4" value="4"> Both joints look identical</label>
+          </li>
+          <li>
+            <p>Which of the following is true about Radiata Pine?</p>
+            <label><input type="radio" name="q5" value="1"> It is naturally termite-resistant</label><br>
+            <label><input type="radio" name="q5" value="2"> It is soft, easy to shape, but prone to denting</label><br>
+            <label><input type="radio" name="q5" value="3"> It is difficult to glue</label><br>
+            <label><input type="radio" name="q5" value="4"> It is mostly used outdoors</label>
+          </li>
+          <li>
+            <p>What is a common challenge when working with Radiata Pine?</p>
+            <label><input type="radio" name="q6" value="1"> It is very heavy and oily</label><br>
+            <label><input type="radio" name="q6" value="2"> It often has knots that are harder than surrounding wood</label><br>
+            <label><input type="radio" name="q6" value="3"> It smells bad and is hard to cut</label><br>
+            <label><input type="radio" name="q6" value="4"> It cannot be sanded</label>
+          </li>
+          <li>
+            <p>Which tool is used to mark parallel lines for joinery?</p>
+            <label><input type="radio" name="q7" value="1"> Bevel gauge</label><br>
+            <label><input type="radio" name="q7" value="2"> Marking gauge</label><br>
+            <label><input type="radio" name="q7" value="3"> Coping saw</label><br>
+            <label><input type="radio" name="q7" value="4"> Tape measure</label>
+          </li>
+          <li>
+            <p>What must you do before accurate marking?</p>
+            <label><input type="radio" name="q8" value="1"> Stain the timber</label><br>
+            <label><input type="radio" name="q8" value="2"> Cut the timber to length</label><br>
+            <label><input type="radio" name="q8" value="3"> Plane and mark a face side and face edge</label><br>
+            <label><input type="radio" name="q8" value="4"> Drill holes first</label>
+          </li>
+          <li>
+            <p>Why mark the “waste side” of a cut?</p>
+            <label><input type="radio" name="q9" value="1"> So you can sand it first</label><br>
+            <label><input type="radio" name="q9" value="2"> So you know which side the saw blade should remove</label><br>
+            <label><input type="radio" name="q9" value="3"> So you know which side to glue</label><br>
+            <label><input type="radio" name="q9" value="4"> So you can cut through the line</label>
+          </li>
+          <li>
+            <p>What’s one benefit of using Radiata Pine in projects?</p>
+            <label><input type="radio" name="q10" value="1"> It requires power tools only</label><br>
+            <label><input type="radio" name="q10" value="2"> It is forgiving, easy to shape, and good for learning</label><br>
+            <label><input type="radio" name="q10" value="3"> It doesn’t need planning</label><br>
+            <label><input type="radio" name="q10" value="4"> It’s stronger than most hardwoods</label>
+          </li>
+        </ol>
+        <button type="button" onclick="submitQuiz()">Check Answers</button>
+        <span id="quizResult" class="quiz-msg"></span>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

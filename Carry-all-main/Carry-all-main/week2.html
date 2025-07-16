@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Week 2 – Australia’s First Technologists" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 2 – Australia’s First Technologists</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
+    header { background: #007bff; color: #fff; padding: 20px; text-align: center; }
+    nav { display: flex; justify-content: center; background: #0056b3; flex-wrap: wrap; }
+    nav a { padding: 15px 20px; color: #fff; text-decoration: none; }
+    nav a.active, nav a:hover { background: #003f80; }
+    main.content { padding: 20px; }
+    .content-section { background: #fff; margin: 10px auto; padding: 20px; width: 90%; max-width: 800px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 5px; }
+    h2, h3 { color: #007bff; }
+    .quiz { background: #f9f9f9; padding: 15px; border: 1px solid #ddd; margin-top: 20px; border-radius: 5px; }
+    .quiz ol { padding-left: 20px; }
+    .quiz li { margin-bottom: 15px; }
+    .quiz button { margin-top: 10px; padding: 8px 12px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .quiz-msg { display: block; margin-top: 10px; font-weight: bold; }
+  </style>
+  
+<script>
+    function submitQuiz() {
+      const name = document.getElementById("studentName").value.trim();
+      if (!name) {
+        alert("Please enter your name.");
+        return;
+      }
+      const answers = {q1: "2", q2: "3", q3: "2", q4: "3", q5: "3", q6: "3", q7: "2", q8: "2", q9: "3", q10: "4"};
+      let correct = 0;
+      const total = Object.keys(answers).length;
+      for (let q in answers) {
+        const sel = document.querySelector('input[name="' + q + '"]:checked');
+        if (sel && sel.value === answers[q]) correct++;
+      }
+      document.getElementById('quizResult').textContent = `Thanks ${name}, you scored ${correct}/${total}.`;
+      fetch("https://script.google.com/macros/s/AKfycbwgGErectw_UVCyTxfRyA14mTSBssJ2r88_UiQU0CrxQs1vQ8plSuAueFNCTLS8nmBJ/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name, week: "Week 2", score: correct })
+      });
+      alert("Your mark has been submitted to your teacher");
+    }
+</script>
+
+</head>
+<body>
+  <header>
+    <h1>Carry-all Project – Week 2</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="week2.html" class="active">Week 2</a>
+    <a href="week3.html">Next →</a>
+  </nav>
+  <main class="content">
+    <section class="content-section">
+      <h2>Week 2: Australia’s First Technologists – Woodworking Traditions of Aboriginal and Torres Strait Islander Peoples</h2>
+      <h3>Introduction</h3>
+      <p>This week we’re stepping back—way back—to explore some of the world’s oldest and most sustainable woodworking traditions. Aboriginal and Torres Strait Islander Peoples have been using timber technologies for tens of thousands of years. Their work with wood was more than practical—it was deeply connected to Country, culture, and community.</p>
+      <h3>Woodworking with Respect and Sustainability</h3>
+      <p>For First Nations Australians, tools weren’t just functional—they were part of a wider system that linked people to the land. Every tree cut had a purpose, and every tool was made with precision and care using what was available in that specific Country.</p>
+      <ul>
+        <li>Stone axes and adzes, for cutting and shaping timber</li>
+        <li>Shell or stone scrapers, for smoothing surfaces</li>
+        <li>Natural adhesives, like spinifex resin, used to attach stone tools to wooden handles (hafting)</li>
+        <li>Fire shaping, used to soften and form timber into canoes, coolamons, and shields</li>
+      </ul>
+      <p>Nothing was wasted, and tools were often multi-functional—for example, a spear-thrower (woomera) could also be used for carrying items or making fire.</p>
+      <h3>Timber Knowledge: Working with the Right Tree</h3>
+      <p>Each region had its own preferred timbers based on the properties needed:</p>
+      <ul>
+        <li>Mulga (Acacia aneura) – dense and strong, for hunting tools and clubs</li>
+        <li>Eucalyptus – tough and flexible, for shields, didgeridoos, and bark canoes</li>
+        <li>Blackwood – smooth and resilient, for finely shaped tools</li>
+        <li>Fig tree roots – lightweight, ideal for large shields in Northern Australia</li>
+      </ul>
+      <h3>Technology That’s More Than Tools</h3>
+      <p>Aboriginal and Torres Strait Islander technology was holistic. It included:</p>
+      <ul>
+        <li>Design thinking, shown in multifunctional tools</li>
+        <li>Deep ecological knowledge, passed through generations</li>
+        <li>Efficient construction, using minimal resources for maximum function</li>
+      </ul>
+      <h3>Design Inspiration</h3>
+      <p>As you work on your Carry-all, think about:</p>
+      <ul>
+        <li>Using materials respectfully—avoid waste where possible</li>
+        <li>Designing for function—does every part serve a purpose?</li>
+        <li>Creating something that lasts—how strong is your joint? Could it be handed down?</li>
+      </ul>
+      <h3>Discussion Starters</h3>
+      <ul>
+        <li>Why is it important to study these woodworking practices in a modern course?</li>
+        <li>What lessons can we take from traditional tool design?</li>
+        <li>How has your understanding of timber selection changed?</li>
+      </ul>
+    </section>
+    <section class="content-section quiz">
+      <p><strong>Enter your name to begin:</strong></p>
+      <input type="text" id="studentName" placeholder="Your full name" required>
+      <h2>Have You Been Paying Attention? – Week 2 Quiz</h2>
+      <form id="week2-quiz">
+        <ol>
+          <li><p>What is “hafting” in traditional toolmaking?</p>
+            <label><input type="radio" name="q1" value="1"> Sharpening a stone tool by grinding it on a rock</label><br>
+            <label><input type="radio" name="q1" value="2"> Attaching a stone blade to a wooden handle using natural adhesives</label><br>
+            <label><input type="radio" name="q1" value="3"> Heating timber to make it easier to bend</label><br>
+            <label><input type="radio" name="q1" value="4"> Chipping small flakes from stone to make a sharp edge</label>
+          </li>
+          <li><p>Which natural material was commonly used as a strong adhesive?</p>
+            <label><input type="radio" name="q2" value="1"> Beeswax</label><br>
+            <label><input type="radio" name="q2" value="2"> Tree sap</label><br>
+            <label><input type="radio" name="q2" value="3"> Spinifex resin</label><br>
+            <label><input type="radio" name="q2" value="4"> Clay and water mixture</label>
+          </li>
+          <li><p>Besides throwing a spear, what could a woomera be used for?</p>
+            <label><input type="radio" name="q3" value="1"> Drilling and carving</label><br>
+            <label><input type="radio" name="q3" value="2"> Mixing ochre, scraping, and making fire</label><br>
+            <label><input type="radio" name="q3" value="3"> Catching fish</label><br>
+            <label><input type="radio" name="q3" value="4"> Cooking and steaming wood</label>
+          </li>
+          <li><p>What is a coolamon?</p>
+            <label><input type="radio" name="q4" value="1"> A small spear used for fishing</label><br>
+            <label><input type="radio" name="q4" value="2"> A ceremonial drum</label><br>
+            <label><input type="radio" name="q4" value="3"> A wooden vessel used for carrying food, water, or babies</label><br>
+            <label><input type="radio" name="q4" value="4"> A chisel made from bark</label>
+          </li>
+          <li><p>Why was their timber selection considered sustainable?</p>
+            <label><input type="radio" name="q5" value="1"> They replanted every tree they cut</label><br>
+            <label><input type="radio" name="q5" value="2"> They used only dead wood</label><br>
+            <label><input type="radio" name="q5" value="3"> They selected timber based on deep local knowledge</label><br>
+            <label><input type="radio" name="q5" value="4"> They avoided hardwood entirely</label>
+          </li>
+          <li><p>Which timber was used for impact tools like clubs?</p>
+            <label><input type="radio" name="q6" value="1"> Radiata Pine</label><br>
+            <label><input type="radio" name="q6" value="2"> Mallee</label><br>
+            <label><input type="radio" name="q6" value="3"> Mulga</label><br>
+            <label><input type="radio" name="q6" value="4"> Fig tree roots</label>
+          </li>
+          <li><p>How was bark made pliable for shaping?</p>
+            <label><input type="radio" name="q7" value="1"> Soaking it in water overnight</label><br>
+            <label><input type="radio" name="q7" value="2"> Heating it over fire</label><br>
+            <label><input type="radio" name="q7" value="3"> Smashing with stones</label><br>
+            <label><input type="radio" name="q7" value="4"> Hammering it flat</label>
+          </li>
+          <li><p>What does “holistic” mean in this context?</p>
+            <label><input type="radio" name="q8" value="1"> Uses only organic materials</label><br>
+            <label><input type="radio" name="q8" value="2"> Part of a broader system including culture and spirituality</label><br>
+            <label><input type="radio" name="q8" value="3"> Focuses on one task</label><br>
+            <label><input type="radio" name="q8" value="4"> Avoids sharp tools</label>
+          </li>
+          <li><p>What key lesson can modern woodworking learn?</p>
+            <label><input type="radio" name="q9" value="1"> Avoid cutting timber</label><br>
+            <label><input type="radio" name="q9" value="2"> Add decorative features</label><br>
+            <label><input type="radio" name="q9" value="3"> Design for multiple functions and minimal waste</label><br>
+            <label><input type="radio" name="q9" value="4"> Use fasteners over joinery</label>
+          </li>
+          <li><p>Which tree was used for lightweight shields?</p>
+            <label><input type="radio" name="q10" value="1"> Blackwood</label><br>
+            <label><input type="radio" name="q10" value="2"> Ironbark</label><br>
+            <label><input type="radio" name="q10" value="3"> Mulga</label><br>
+            <label><input type="radio" name="q10" value="4"> Rainforest Fig</label>
+          </li>
+        </ol>
+        <button type="button" onclick="submitQuiz()">Check Answers</button>
+        <span id="quizResult" class="quiz-msg"></span>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

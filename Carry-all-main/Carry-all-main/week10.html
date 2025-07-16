@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Week 10 – Troubleshooting & Refinement" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 10 – Troubleshooting & Refinement</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
+    header { background: #007bff; color: #fff; padding: 20px; text-align: center; }
+    nav { display: flex; justify-content: center; background: #0056b3; flex-wrap: wrap; }
+    nav a { padding: 15px 20px; color: #fff; text-decoration: none; }
+    nav a.active, nav a:hover { background: #003f80; }
+    main.content { padding: 20px; }
+    .content-section { background: #fff; margin: 10px auto; padding: 20px; width: 90%; max-width: 800px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 5px; }
+    h2, h3 { color: #007bff; }
+    ul { margin: 10px 0 15px 20px; }
+    .quiz { background: #f9f9f9; padding: 15px; border: 1px solid #ddd; margin-top: 20px; border-radius: 5px; }
+    .quiz ol { padding-left: 20px; }
+    .quiz li { margin-bottom: 15px; }
+    .quiz button { margin-top: 10px; padding: 8px 12px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .quiz-msg { display: block; margin-top: 10px; font-weight: bold; }
+  </style>
+  
+<script>
+    function submitQuiz() {
+      const name = document.getElementById('studentName').value.trim();
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+      const answers = {
+        q1: '2', q2: '1', q3: '3', q4: '2', q5: '1',
+        q6: '3', q7: '2', q8: '3', q9: '2', q10: '4'
+      };
+      let correct = 0;
+      const total = Object.keys(answers).length;
+      for (let q in answers) {
+        const sel = document.querySelector('input[name="' + q + '"]:checked');
+        if (sel && sel.value === answers[q]) correct++;
+      }
+      document.getElementById('quizResult').textContent =
+        `Thanks ${name}, you scored ${correct}/${total}.`;
+      fetch('https://script.google.com/macros/s/AKfycbwgGErectw_UVCyTxfRyA14mTSBssJ2r88_UiQU0CrxQs1vQ8plSuAueFNCTLS8nmBJ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, week: 'Week 10', score: correct })
+      });
+      alert('Your mark has been submitted to your teacher');
+    }
+</script>
+
+</head>
+<body>
+  <header>
+    <h1>Carry-all Project – Week 10</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="week9.html">← Previous</a>
+    <a href="week10.html" class="active">Week 10</a>
+    <a href="week11.html">Next →</a>
+  </nav>
+  <main class="content">
+    <section class="content-section">
+      <h2>Week 10: Troubleshooting &amp; Refinement</h2>
+      <h3>Introduction</h3>
+      <p>Even the best projects encounter hiccups. This week focuses on identifying and fixing common issues in your Carry-all, from misalignments and glue squeeze-out to surface imperfections. We'll refine your work to professional standards.</p>
+      <h3>Identifying Common Issues</h3>
+      <ul>
+        <li><strong>Loose or misaligned joints:</strong> gaps at corners or sides.</li>
+        <li><strong>Glue squeeze-out:</strong> excess glue on surfaces.</li>
+        <li><strong>Surface defects:</strong> dents, scratches, or uneven glue lines.</li>
+        <li><strong>Warp or twist:</strong> panels not sitting flush.</li>
+      </ul>
+      <h3>Fixing Misalignment</h3>
+      <p>Re-clamp with shims or slight force, or gently shave high spots with a plane or chisel. Check square and diagonals after adjustment.</p>
+      <h3>Managing Glue Squeeze-Out</h3>
+      <p>Wipe excess with a damp cloth before curing. After dry, scrape gently with a cabinet scraper or chisel to avoid tearing fibers.</p>
+      <h3>Refining Surfaces</h3>
+      <ul>
+        <li>Fill small gaps or voids with matching wood filler.</li>
+        <li>Sand smooth, starting with medium grit, finishing with fine grit.</li>
+        <li>Use a sanding block for flat areas and detail sanding for corners.</li>
+      </ul>
+      <h3>Final Touches</h3>
+      <p>Chamfer or round-over edges slightly to remove sharpness. Test fitting lids/handles and make minor planing adjustments for smooth operation.</p>
+      <h3>Discussion Starters</h3>
+      <ul>
+        <li>What’s your first step when a joint doesn’t fit?</li>
+        <li>How do you clean glue squeeze-out without damaging the surface?</li>
+        <li>Why are chamfered edges both functional and aesthetic?</li>
+      </ul>
+    </section>
+    <section class="content-section quiz">
+      <p><strong>Enter your name to begin:</strong></p>
+      <input type="text" id="studentName" placeholder="Your full name" required>
+      <h2>Have You Been Paying Attention? – Week 10 Quiz</h2>
+      <form id="week10-quiz">
+        <ol>
+          <li>
+            <p>What is the first action when you notice a joint gap?</p>
+            <label><input type="radio" name="q1" value="1"> Ignore it; glaze over with finish</label><br>
+            <label><input type="radio" name="q1" value="2"> Re-clamp and use shims or adjust alignment</label><br>
+            <label><input type="radio" name="q1" value="3"> Fill with wood filler immediately</label><br>
+            <label><input type="radio" name="q1" value="4"> Sand the gap away</label>
+          </li>
+          <li>
+            <p>How should glue squeeze-out be removed before it cures?</p>
+            <label><input type="radio" name="q2" value="1"> Wipe with a damp cloth</label><br>
+            <label><input type="radio" name="q2" value="2"> Let it dry then sand vigorously</label><br>
+            <label><input type="radio" name="q2" value="3"> Peel it off by hand</label><br>
+            <label><input type="radio" name="q2" value="4"> Use acetone solvent</label>
+          </li>
+          <li>
+            <p>Which tool is best for shaving high spots on a joint?</p>
+            <label><input type="radio" name="q3" value="1"> Sandpaper</label><br>
+            <label><input type="radio" name="q3" value="2"> Cabinet scraper</label><br>
+            <label><input type="radio" name="q3" value="3"> Hand plane or chisel</label><br>
+            <label><input type="radio" name="q3" value="4"> Router</label>
+          </li>
+          <li>
+            <p>What grit sequence is recommended for final surface smoothing?</p>
+            <label><input type="radio" name="q4" value="1"> 240 → 120</label><br>
+            <label><input type="radio" name="q4" value="2"> 120 → 180 → 240</label><br>
+            <label><input type="radio" name="q4" value="3"> 60 → 80 → 100</label><br>
+            <label><input type="radio" name="q4" value="4"> Steel wool only</label>
+          </li>
+          <li>
+            <p>What is a key benefit of chamfering edges?</p>
+            <label><input type="radio" name="q5" value="1"> Increases structural strength</label><br>
+            <label><input type="radio" name="q5" value="2"> Makes edges sharper</label><br>
+            <label><input type="radio" name="q5" value="3"> Helps hide glue lines</label><br>
+            <label><input type="radio" name="q5" value="4"> Improves safety and aesthetics</label>
+          </li>
+          <li>
+            <p>Which filler is best for small corner voids?</p>
+            <label><input type="radio" name="q6" value="1"> Epoxy putty</label><br>
+            <label><input type="radio" name="q6" value="2"> Wood shavings only</label><br>
+            <label><input type="radio" name="q6" value="3"> Matching wood filler</label><br>
+            <label><input type="radio" name="q6" value="4"> Silicone caulk</label>
+          </li>
+          <li>
+            <p>What’s the safest way to adjust a warped panel?</p>
+            <label><input type="radio" name="q7" value="1"> Force it flat and glue</label><br>
+            <label><input type="radio" name="q7" value="2"> Steam bend back to shape</label><br>
+            <label><input type="radio" name="q7" value="3"> Plane high spots and clamp until stable</label><br>
+            <label><input type="radio" name="q7" value="4"> Soak in water and hope for best</label>
+          </li>
+          <li>
+            <p>Why test fitting lids or handles repeatedly?</p>
+            <label><input type="radio" name="q8" value="1"> To check appearance only</label><br>
+            <label><input type="radio" name="q8" value="2"> To verify functional clearance and smooth operation</label><br>
+            <label><input type="radio" name="q8" value="3"> To flatten the wood</label><br>
+            <label><input type="radio" name="q8" value="4"> To mark your name</label>
+          </li>
+          <li>
+            <p>What should you do after final sanding before finishing?</p>
+            <label><input type="radio" name="q9" value="1"> Apply finish immediately without cleaning</label><br>
+            <label><input type="radio" name="q9" value="2"> Vacuum or wipe down to remove dust</label><br>
+            <label><input type="radio" name="q9" value="3"> Re-glue all joints</label><br>
+            <label><input type="radio" name="q9" value="4"> Store in a damp place</label>
+          </li>
+          <li>
+            <p>How many total steps are in the troubleshooting & refinement checklist?</p>
+            <label><input type="radio" name="q10" value="1"> 4</label><br>
+            <label><input type="radio" name="q10" value="2"> 5</label><br>
+            <label><input type="radio" name="q10" value="3"> 7</label><br>
+            <label><input type="radio" name="q10" value="4"> 6</label>
+          </li>
+        </ol>
+        <button type="button" onclick="submitQuiz()">Check Answers</button>
+        <span id="quizResult" class="quiz-msg"></span>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

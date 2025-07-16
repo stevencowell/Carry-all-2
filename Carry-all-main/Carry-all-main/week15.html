@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Week 15 – Course Reflection & Next Steps" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 15 – Course Reflection &amp; Next Steps</title>
+  <style>
+    body { margin:0; font-family:Arial,sans-serif; background:#f4f4f4; color:#333; line-height:1.6; }
+    header { background:#007bff; color:#fff; padding:20px; text-align:center; }
+    nav { display:flex; justify-content:center; background:#0056b3; flex-wrap:wrap; }
+    nav a { padding:15px 20px; color:#fff; text-decoration:none; }
+    nav a.active, nav a:hover { background:#003f80; }
+    main { padding:20px; }
+    .section { background:#fff; margin:10px auto; padding:20px; width:90%; max-width:800px; box-shadow:0 2px 5px rgba(0,0,0,0.1); border-radius:5px; }
+    h2,h3 { color:#007bff; }
+    ul { margin:10px 0 15px 20px; }
+    .quiz { background:#f9f9f9; padding:15px; border:1px solid #ddd; margin-top:20px; border-radius:5px; }
+    .quiz ol { padding-left:20px; }
+    .quiz li { margin-bottom:15px; }
+    .quiz button { margin-top:10px; padding:8px 12px; background:#007bff; color:#fff; border:none; border-radius:4px; cursor:pointer; }
+    .quiz-msg { display:block; margin-top:10px; font-weight:bold; }
+  </style>
+  
+<script>
+    function submitQuiz() {
+      const name = document.getElementById('studentName').value.trim();
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+      const answers = {"q1":"2","q2":"1","q3":"3","q4":"2","q5":"4","q6":"1","q7":"2","q8":"3","q9":"1","q10":"2"};
+      let correct = 0;
+      const total = Object.keys(answers).length;
+      for (let q in answers) {
+        const sel = document.querySelector('input[name="' + q + '"]:checked');
+        if (sel && sel.value === answers[q]) correct++;
+      }
+      document.getElementById('result').textContent =
+        `Thanks ${name}, you scored ${correct}/${total}.`;
+      fetch('https://script.google.com/macros/s/AKfycbwgGErectw_UVCyTxfRyA14mTSBssJ2r88_UiQU0CrxQs1vQ8plSuAueFNCTLS8nmBJ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, week: 'Week 15', score: correct })
+      });
+      alert('Your mark has been submitted to your teacher');
+    }
+</script>
+
+</head>
+<body>
+  <header>
+    <h1>Carry-all Project – Week 15</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="week14.html">← Week 14</a>
+    <a href="week15.html" class="active">Week 15</a>
+  </nav>
+  <main>
+    <section class="section">
+      <h2>Week 15: Course Reflection &amp; Next Steps</h2>
+      <h3>Introduction</h3>
+      <p>Congratulations on completing the Carry-all unit! This final week is about reflecting on your journey, celebrating your achievements, and planning how to carry these skills forward.</p>
+      <h3>Reflecting on Your Learning</h3>
+      <ul>
+        <li>Which three skills have you improved the most?</li>
+        <li>What was your biggest challenge, and how did you overcome it?</li>
+        <li>Which part of the process—marking, joinery, finishing—did you enjoy most?</li>
+      </ul>
+      <h3>Documenting Your Portfolio</h3>
+      <ul>
+        <li>Gather photos—show every stage from blank timber to final product.</li>
+        <li>Include quiz results and discussion notes as evidence of understanding.</li>
+        <li>Write a 100-word summary of your project story.</li>
+      </ul>
+      <h3>Next Steps</h3>
+      <ul>
+        <li>Identify one advanced joint or technique to learn next_term.</li>
+        <li>Plan a small personal project and apply these skills independently.</li>
+        <li>Join a local makerspace or woodworking club to continue practicing.</li>
+      </ul>
+    </section>
+
+    <section class="section quiz">
+      <p><strong>Enter your name to begin:</strong></p>
+      <input type="text" id="studentName" placeholder="Your full name" required>
+      <h2>Have You Been Paying Attention? – Week 15 Quiz</h2>
+      <form>
+        <ol>
+          <li>
+            <p>Which reflection question helps you track your progress?</p>
+            <label><input type="radio" name="q1" value="1"> How many boards did I cut?</label><br>
+            <label><input type="radio" name="q1" value="2"> Which skills improved most?</label><br>
+            <label><input type="radio" name="q1" value="3"> What finish did I choose?</label><br>
+            <label><input type="radio" name="q1" value="4"> How much did it cost?</label>
+          </li>
+          <li>
+            <p>What should a portfolio include?</p>
+            <label><input type="radio" name="q2" value="1"> Only final images</label><br>
+            <label><input type="radio" name="q2" value="2"> Photos of every stage</label><br>
+            <label><input type="radio" name="q2" value="3"> Text descriptions only</label><br>
+            <label><input type="radio" name="q2" value="4"> Quiz answers only</label>
+          </li>
+          <li>
+            <p>Why plan a personal project next?</p>
+            <label><input type="radio" name="q3" value="1"> To copy a classmate</label><br>
+            <label><input type="radio" name="q3" value="2"> To avoid school work</label><br>
+            <label><input type="radio" name="q3" value="3"> To apply skills independently</label><br>
+            <label><input type="radio" name="q3" value="4"> To use leftover timber only</label>
+          </li>
+          <li>
+            <p>What is one benefit of joining a makerspace?</p>
+            <label><input type="radio" name="q4" value="1"> Free timber</label><br>
+            <label><input type="radio" name="q4" value="2"> Access to tools and community</label><br>
+            <label><input type="radio" name="q4" value="3"> Guaranteed project success</label><br>
+            <label><input type="radio" name="q4" value="4"> No need to plan</label>
+          </li>
+          <li>
+            <p>Which summary length is suggested for your project story?</p>
+            <label><input type="radio" name="q5" value="1"> 20 words</label><br>
+            <label><input type="radio" name="q5" value="2"> 100 words</label><br>
+            <label><input type="radio" name="q5" value="3"> 500 words</label><br>
+            <label><input type="radio" name="q5" value="4"> 1000 words</label>
+          </li>
+          <li>
+            <p>Which skill is NOT mentioned for next steps?</p>
+            <label><input type="radio" name="q6" value="1"> Advanced joinery</label><br>
+            <label><input type="radio" name="q6" value="2"> Personal design planning</label><br>
+            <label><input type="radio" name="q6" value="3"> Makerspace collaboration</label><br>
+            <label><input type="radio" name="q6" value="4"> Project budgeting</label>
+          </li>
+          <li>
+            <p>Why write a personal project plan?</p>
+            <label><input type="radio" name="q7" value="1"> To avoid teacher feedback</label><br>
+            <label><input type="radio" name="q7" value="2"> To guide each building step</label><br>
+            <label><input type="radio" name="q7" value="3"> To reduce sanding time</label><br>
+            <label><input type="radio" name="q7" value="4"> To skip marking out</label>
+          </li>
+          <li>
+            <p>Which evidence shows your understanding of theory?</p>
+            <label><input type="radio" name="q8" value="1"> Quiz results</label><br>
+            <label><input type="radio" name="q8" value="2"> Random photos</label><br>
+            <label><input type="radio" name="q8" value="3"> Only final product</label><br>
+            <label><input type="radio" name="q8" value="4"> Only tool list</label>
+          </li>
+          <li>
+            <p>What mindset drives continuous improvement?</p>
+            <label><input type="radio" name="q9" value="1"> Fixed and closed</label><br>
+            <label><input type="radio" name="q9" value="2"> Open and reflective</label><br>
+            <label><input type="radio" name="q9" value="3"> Defensive and rushed</label><br>
+            <label><input type="radio" name="q9" value="4"> Indifferent and passive</label>
+          </li>
+          <li>
+            <p>What’s the best next step after this course?</p>
+            <label><input type="radio" name="q10" value="1"> Repeat the same project</label><br>
+            <label><input type="radio" name="q10" value="2"> Start a new, personal design</label><br>
+            <label><input type="radio" name="q10" value="3"> Stop woodworking</label><br>
+            <label><input type="radio" name="q10" value="4"> Only practice sanding</label>
+          </li>
+        </ol>
+        <button type="button" onclick="submitQuiz()">Check Answers</button>
+        <span id="result" class="quiz-msg"></span>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
